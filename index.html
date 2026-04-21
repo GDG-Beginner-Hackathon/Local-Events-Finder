@@ -37,10 +37,25 @@
     <section class="categories">
       <h2>Browse by Category</h2>
       <div class="category-list">
+        <div class="card" onclick="filterByCategory('all')">🌐 All</div>
         <div class="card" onclick="filterByCategory('music')">🎵 Music</div>
-        <div class="card" onclick="filterByCategory('tech')">💻 Tech</div>
-        <div class="card" onclick="filterByCategory('church')">⛪️ Church</div>
-        <div class="card" onclick="filterByCategory('social')">🎉 Social</div>
+        <div class="card" onclick="filterByCategory('religion')">
+          ⛪️ Religion
+        </div>
+        <div class="card" onclick="filterByCategory('business')">
+          💼 Business
+        </div>
+        <div class="card" onclick="filterByCategory('concert')">🎸 Concert</div>
+        <div class="card" onclick="filterByCategory('theatre')">🎭 Theatre</div>
+        <div class="card" onclick="filterByCategory('finearts')">
+          🎨 Fine Arts
+        </div>
+        <div class="card" onclick="filterByCategory('tech')">💻 Technology</div>
+        <div class="card" onclick="filterByCategory('sports')">⚽️ Sports</div>
+        <div class="card" onclick="filterByCategory('health')">
+          ❤️ Health & Wellness
+        </div>
+        <div class="card" onclick="filterByCategory('gaming')">🎮 Gaming</div>
       </div>
     </section>
 
@@ -59,8 +74,10 @@
             <p class="card-desc">
               Join developers, designers and founders for an evening of
               lightning talks, networking and demos of the latest projects built
-              right here in Addis.
+              right here in Addis. Bring your laptop, ideas, and business cards
+              — this is one evening you don't want to miss.
             </p>
+            <span class="read-more">Read more →</span>
           </div>
         </div>
 
@@ -75,8 +92,9 @@
             <p class="card-desc">
               An unforgettable evening of live music featuring local artists.
               Enjoy great performances, food stalls, and a vibrant crowd. Doors
-              open at 7:00 PM.
+              open at 7:00 PM. Come early to grab the best spots near the stage.
             </p>
+            <span class="read-more">Read more →</span>
           </div>
         </div>
 
@@ -91,12 +109,12 @@
             <p class="card-desc">
               A two-day youth conference focused on faith, leadership and
               community service. Featuring workshops, worship sessions and
-              keynote speakers.
+              keynote speakers from across Ethiopia.
             </p>
+            <span class="read-more">Read more →</span>
           </div>
         </div>
-      </div>
-      <div class="event-grid">
+
         <div class="event-card" onclick="openModal('football')">
           <div class="card-img">⚽️</div>
           <div class="card-body">
@@ -108,8 +126,9 @@
             <p class="card-desc">
               Eight local teams compete in a single-day knockout tournament.
               Come cheer, enjoy street food stalls, and join the mini-skills
-              challenge at halftime.
+              challenge at halftime. Entry is 50 ETB.
             </p>
+            <span class="read-more">Read more →</span>
           </div>
         </div>
 
@@ -124,8 +143,9 @@
             <p class="card-desc">
               Celebrate Ethiopian literature with an open-mic poetry evening in
               Amharic and Tigrinya. New voices welcome — sign up to read at the
-              door.
+              door. Light refreshments served.
             </p>
+            <span class="read-more">Read more →</span>
           </div>
         </div>
 
@@ -140,13 +160,115 @@
             <p class="card-desc">
               Addis' biggest monthly social night is back — DJ sets, dance
               battles, and a bar serving cocktails all night. 21+ only. Tickets
-              sell out fast.
+              sell out fast so grab yours early.
             </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('business')">
+          <div class="card-img">💼</div>
+          <div class="card-body">
+            <h3>Startup Pitch Night</h3>
+            <div class="card-meta">
+              <span>📅 May 15</span>
+              <span>📍 Bole, Addis Ababa</span>
+            </div>
+            <p class="card-desc">
+              Ten early-stage startups pitch their ideas to a panel of investors
+              and mentors. Network with founders and the local business
+              community after the pitches. Free entry for audience members.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('health')">
+          <div class="card-img">❤️</div>
+          <div class="card-body">
+            <h3>Wellness & Yoga Morning</h3>
+            <div class="card-meta">
+              <span>📅 May 17</span>
+              <span>📍 Entoto Park</span>
+            </div>
+            <p class="card-desc">
+              Start your Saturday right with a guided outdoor yoga session
+              followed by a nutrition talk and healthy breakfast. Open to all
+              fitness levels. Bring your mat and a friend.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('gaming')">
+          <div class="card-img">🎮</div>
+          <div class="card-body">
+            <h3>Addis Gaming Tournament</h3>
+            <div class="card-meta">
+              <span>📅 May 20</span>
+              <span>📍 Unity Park</span>
+            </div>
+            <p class="card-desc">
+              Compete in FIFA, Mortal Kombat and Call of Duty tournaments with
+              prizes for top players. Casual gaming stations also available.
+              Food and drinks on site all day long.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('finearts')">
+          <div class="card-img">🎨</div>
+          <div class="card-body">
+            <h3>Ethiopian Fine Arts Exhibition</h3>
+            <div class="card-meta">
+              <span>📅 May 22</span>
+              <span>📍 Addis Ababa Museum</span>
+            </div>
+            <p class="card-desc">
+              A three-day exhibition showcasing paintings, sculptures and
+              photography from over 30 Ethiopian artists. Guided tours every two
+              hours. Entry is 80 ETB.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('theatre')">
+          <div class="card-img">🎭</div>
+          <div class="card-body">
+            <h3>National Theatre Play</h3>
+            <div class="card-meta">
+              <span>📅 May 25</span>
+              <span>📍 National Theatre, Addis</span>
+            </div>
+            <p class="card-desc">
+              A powerful new Amharic play exploring themes of identity, family
+              and modern Ethiopian life. Performed over three nights. Book your
+              seat early as it sells out fast.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('gospel')">
+          <div class="card-img">🙏</div>
+          <div class="card-body">
+            <h3>Gospel Music Festival</h3>
+            <div class="card-meta">
+              <span>📅 May 27</span>
+              <span>📍 Meskel Square</span>
+            </div>
+            <p class="card-desc">
+              A full day of gospel music, worship and community celebration
+              featuring choirs and solo artists from across Ethiopia. Free entry
+              for all. Come with family and friends.
+            </p>
+            <span class="read-more">Read more →</span>
           </div>
         </div>
       </div>
     </section>
-
     <!-- Footer -->
     <footer>
       <a href="login.html">About Us</a>
@@ -237,40 +359,71 @@
         const cards = document.querySelectorAll(".event-card");
 
         cards.forEach((card) => {
-          const desc = card
-            .querySelector(".card-desc")
-            .textContent.toLowerCase();
           const title = card.querySelector("h3").textContent.toLowerCase();
-          const location = card
-            .querySelector(".card-meta")
-            .textContent.toLowerCase();
 
-          if (
-            category === "music" &&
-            (title.includes("concert") ||
-              title.includes("jazz") ||
-              title.includes("music"))
-          ) {
+          if (category === "all") {
+            card.style.display = "block";
+          } else if (category === "music" && title.includes("music")) {
+            card.style.display = "block";
+          } else if (category === "concert" && title.includes("concert")) {
             card.style.display = "block";
           } else if (
-            category === "tech" &&
-            (title.includes("tech") ||
-              title.includes("startup") ||
-              title.includes("pitch"))
-          ) {
-            card.style.display = "block";
-          } else if (
-            category === "church" &&
+            category === "religion" &&
             (title.includes("church") ||
               title.includes("gospel") ||
               title.includes("conference"))
           ) {
             card.style.display = "block";
           } else if (
+            category === "business" &&
+            (title.includes("business") ||
+              title.includes("startup") ||
+              title.includes("pitch"))
+          ) {
+            card.style.display = "block";
+          } else if (
+            category === "theatre" &&
+            (title.includes("theatre") ||
+              title.includes("poetry") ||
+              title.includes("amharic"))
+          ) {
+            card.style.display = "block";
+          } else if (
+            category === "finearts" &&
+            (title.includes("art") || title.includes("fine"))
+          ) {
+            card.style.display = "block";
+          } else if (
+            category === "tech" &&
+            (title.includes("tech") || title.includes("meetup"))
+          ) {
+            card.style.display = "block";
+          } else if (
+            category === "sports" &&
+            (title.includes("football") ||
+              title.includes("tournament") ||
+              title.includes("sport"))
+          ) {
+            card.style.display = "block";
+          } else if (
+            category === "health" &&
+            (title.includes("health") ||
+              title.includes("wellness") ||
+              title.includes("fitness"))
+          ) {
+            card.style.display = "block";
+          } else if (
+            category === "gaming" &&
+            (title.includes("game") ||
+              title.includes("gaming") ||
+              title.includes("esport"))
+          ) {
+            card.style.display = "block";
+          } else if (
             category === "social" &&
             (title.includes("dance") ||
-              title.includes("social") ||
-              title.includes("afrobeats"))
+              title.includes("afrobeats") ||
+              title.includes("social"))
           ) {
             card.style.display = "block";
           } else {
@@ -341,6 +494,42 @@
           location: "📍 Sky Bar, Bole  •  📅 May 10",
           img: "https://via.placeholder.com/500x200",
           desc: "Addis' biggest monthly social night is back — DJ sets, dance battles, and a bar serving cocktails all night. 21+ only. Tickets sell out fast. 150 ETB entry.",
+        },
+        business: {
+          title: "Startup Pitch Night",
+          location: "📍 Bole, Addis Ababa  •  📅 May 15",
+          img: "https://via.placeholder.com/500x200",
+          desc: "Ten early-stage startups pitch their ideas to a panel of investors and mentors. Network with founders, investors and the local business community after the pitches. Free entry for audience members. Come early to grab a good seat.",
+        },
+        health: {
+          title: "Wellness & Yoga Morning",
+          location: "📍 Entoto Park  •  📅 May 17",
+          img: "https://via.placeholder.com/500x200",
+          desc: "Start your Saturday right with a guided outdoor yoga session followed by a nutrition talk and healthy breakfast. Open to all fitness levels. Bring your mat and a friend for a great morning out in the fresh air of Entoto.",
+        },
+        gaming: {
+          title: "Addis Gaming Tournament",
+          location: "📍 Unity Park  •  📅 May 20",
+          img: "https://via.placeholder.com/500x200",
+          desc: "Compete in FIFA, Mortal Kombat and Call of Duty tournaments with prizes for top players. Casual gaming stations also available for non-competitors. Food and drinks on site all day. Registration is 100 ETB per player.",
+        },
+        finearts: {
+          title: "Ethiopian Fine Arts Exhibition",
+          location: "📍 Addis Ababa Museum  •  📅 May 22",
+          img: "https://via.placeholder.com/500x200",
+          desc: "A three-day exhibition showcasing paintings, sculptures and photography from over 30 Ethiopian artists. Guided tours available every two hours. Entry is 80 ETB and supports local artists directly. A must-see for art lovers.",
+        },
+        theatre: {
+          title: "National Theatre Play",
+          location: "📍 National Theatre, Addis  •  📅 May 25",
+          img: "https://via.placeholder.com/500x200",
+          desc: "A powerful new Amharic play exploring themes of identity, family and modern Ethiopian life. Performed by the National Theatre cast over three nights. Book your seat early as it sells out fast. Tickets are 150 ETB.",
+        },
+        gospel: {
+          title: "Gospel Music Festival",
+          location: "📍 Meskel Square  •  📅 May 27",
+          img: "https://via.placeholder.com/500x200",
+          desc: "A full day of gospel music, worship and community celebration featuring choirs and solo artists from across Ethiopia. Free entry for all. Come with family and friends for an uplifting day of music and community togetherness.",
         },
       };
 

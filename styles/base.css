@@ -29,13 +29,19 @@ body {
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  border-radius: 15px;
-  margin: 2% 0%;
-  padding: 50px 40px;
-  background: var(--card);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 15px 25px;
+ margin: 20px auto;
+ border-radius: 20px;
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ background: rgba(255,255,255,0.15);
+ border: 1px solid rgba(255,255,255,0.2);
+ box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+ width: 100%;
+ transition: all 0.3s ease;
 }
 
 
@@ -68,16 +74,31 @@ body {
 
 /* Hero */
 .hero {
+  
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.15);
+  
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  transition:all 0.3s ease;
+
+
   text-align: center;
-  padding: 100px 40px;
+  padding: 100px, 40px;
   border-radius: 15px;
   font-size: 20px;
-  background: linear-gradient(135deg, #43cea2, #185a9d);
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../assets/images/hero.jpg");
+
+  background-color: #185a9d;
   color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .search-box {
   margin-top: 20px;
+
 }
 
 .search-box input {

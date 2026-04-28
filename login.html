@@ -32,7 +32,8 @@
 
         <div class="form-group">
           <label>Password</label>
-          <input type="password" id="login-password" placeholder="Enter your password" />
+          <input type="password" id="login-password" placeholder="Enter your password"/>
+          <span class="toggle-Password"onclick="togglePassword()">👁️</span>
         </div>
 
         <p id="login-error" class="auth-error"></p>
@@ -88,6 +89,18 @@
         window.location.href = 'index.html';
       }, 2000);
     }
+  </script>
+
+   <script>
+    function togglePassword() {
+  const passwordInput = document.getElementById("password");
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+  } else {
+    passwordInput.type = "password";
+  }
+}
   </script>
 
 </body>

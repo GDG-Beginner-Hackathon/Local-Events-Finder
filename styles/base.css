@@ -83,6 +83,7 @@ body {
   text-align: center;
   padding: 100px, 40px;
   border-radius: 15px;
+  min-height: 40vh;
   font-size: 20px;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -192,6 +193,11 @@ body {
 .close-btn {
   cursor: pointer;
   font-size: 18px;
+}
+
+.card-desc {
+  text-decoration: none;
+  text-align: justify;
 }
 
 /* Grid */

@@ -536,8 +536,8 @@ footer a {
         justify-content: space-around;
         margin-top: 10px;
       }
-       .theme-toggle {
-        margin-top: 10px;
-        width: 100%;
-      }
+ .theme-toggle {
+ margin-top: 10px;
+  width: 100%;
+  }
 }

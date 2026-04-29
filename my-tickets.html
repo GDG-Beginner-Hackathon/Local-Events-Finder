@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tickets - EventFinder</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/my-tickets.css">
+    <link rel="stylesheet" href="styles/responsiveness.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">EventFinder</h1>
+    <nav>
+      <button id="theme-toggle">🌙 Dark Mode</button>
+      <a href="index.html">Home</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="about-us.html">About Us</a>
+    </nav>
+  </header>
+  
+  <section class="auth-section">
+    <div class="tickets-container">
+      <h2>🎫 My Tickets</h2>
+      <p class="auth-sub">Your event registrations</p>
+      
+      <div id="tickets-list"></div>
+      
+      <div class="empty-tickets" id="empty-state" style="display: none;">
+        <p>You haven't registered for any events yet.</p>
+        <button class="browse-btn" onclick="window.location.href='index.html'">Browse Events</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Confirmation Dialog -->
+  <div id="confirm-dialog" class="confirm-dialog">
+    <div class="confirm-content">
+      <h3>⚠️ Delete Ticket?</h3>
+      <p>Are you sure you want to delete this ticket? This action cannot be undone.</p>
+      <div class="confirm-buttons">
+        <button class="confirm-yes" onclick="confirmDelete()">Yes, Delete</button>
+        <button class="confirm-no" onclick="closeConfirmDialog()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>© 2026 EventFinder. All rights reserved.</p>
+  </footer>
+  
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/my-ticket.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+    /* Additional styles specific to registration page */
+    .event-summary {
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 25px;
+      color: white;
+    }
+
+    .dark-mode .event-summary {
+      background: linear-gradient(135deg, #2c5f8a, #1a3a5c);
+    }
+
+    .event-summary h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .event-summary p {
+      margin: 5px 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .ticket-types {
+      margin: 20px 0;
+    }
+
+    .ticket-option {
+      background: var(--card);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dark-mode .ticket-option {
+      background: #2a2a2a;
+    }
+
+    .ticket-option:hover {
+      transform: translateX(5px);
+    }
+
+    .ticket-option.selected {
+      border-color: #43cea2;
+      background: rgba(67, 206, 162, 0.1);
+    }
+
+    .dark-mode .ticket-option.selected {
+      border-color: #ff7a18;
+      background: rgba(255, 122, 24, 0.1);
+    }
+
+    .ticket-info h4 {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .ticket-info p {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .ticket-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #43cea2;
+    }
+
+    .dark-mode .ticket-price {
+      color: #ff7a18;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .quantity-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: var(--bg);
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .quantity-input {
+      width: 50px;
+      text-align: center;
+      padding: 6px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .total-amount {
+      margin: 20px 0;
+      padding: 15px;
+      background: var(--card);
+      border-radius: 12px;
+      text-align: right;
+    }
+
+    .total-amount h3 {
+      font-size: 18px;
+    }
+
+    .total-amount span {
+      font-size: 24px;
+      color: #43cea2;
+      font-weight: bold;
+    }
+
+    .dark-mode .total-amount span {
+      color: #ff7a18;
+    }
+
+    .register-btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .dark-mode .register-btn-submit {
+      background: linear-gradient(135deg, #ff7a18, #e06c15);
+    }
+
+    .register-btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .payment-methods {
+      margin: 20px 0;
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .dark-mode .payment-option {
+      border-color: #444;
+    }
+
+    .payment-option.selected {
+      border-color: #43cea2;
+      background: rgba(67, 206, 162, 0.1);
+    }
+
+    .dark-mode .payment-option.selected {
+      border-color: #ff7a18;
+      background: rgba(255, 122, 24, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 480px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    .confirmation-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .confirmation-modal.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .confirmation-content {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    .confirmation-content h3 {
+      color: #43cea2;
+      margin-bottom: 15px;
+    }
+
+    .dark-mode .confirmation-content h3 {
+      color: #ff7a18;
+    }
+
+    .close-confirm {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }

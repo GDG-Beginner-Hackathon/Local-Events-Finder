@@ -32,18 +32,24 @@ A simple web application that helps users discover local events based on categor
 EventFinder/
 │
 ├── index.html # Homepage
-├── categories.html # Categories page
+├── register.html # Categories page
 ├── signup.html # User signup page
 ├── login.html # User login page
+├── my-ticket.html # about us page
 ├── about-us.html # about us page
 │
 ├── styles/
 │ └── base.css # Main stylesheet
 │ └── about.css # stylesheet for about us page
 │ └── responsiveness.css # media query for different devices
+│ └── register.css
+│ └── my-ticket.css
 │
 ├── scripts/
 │ └── theme.js # toggle JS logic
+│ └── main.js 
+│ └── register.js
+│ └── my-ticket.js
 │
 └── assets/ Images
 

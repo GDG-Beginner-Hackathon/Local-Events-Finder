@@ -1,0 +1,379 @@
+/* ============================================
+   UNIFIED RESPONSIVE DESIGN
+   Handles: Home, About, Categories, Login, Signup
+   ============================================ */
+
+/* Tablet Styles (max-width: 768px) */
+@media (max-width: 768px) {
+  /* General Layout */
+  body {
+    margin: 0% 3% !important;
+  }
+
+  section {
+    padding: 40px 20px !important;
+  }
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 20px 15px !important;
+    margin: 15px 0px !important;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .navbar a,
+  #theme-toggle {
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    font-size: 14px;
+  }
+
+  /* Hero Section (Home & Categories pages) */
+  .hero {
+    padding: 50px 20px !important;
+    min-height: 35vh;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .search-box input {
+    width: 90%;
+    margin-left: 0 !important;
+  }
+
+  .search-box button {
+    width: 90%;
+    margin-left: 0 !important;
+  }
+
+  /* Categories Grid (Home page) */
+  .category-list {
+    gap: 12px;
+  }
+
+  .category-list .card {
+    width: 100px;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Events Grid (Home page) */
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+
+  .events {
+    padding: 20px !important;
+  }
+
+  .events-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .events-header h2 {
+    margin-bottom: 0;
+  }
+
+  .add-event-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* Cards */
+  .card-img {
+    height: 120px;
+    font-size: 48px;
+  }
+
+  .card-body {
+    padding: 10px 12px 14px;
+  }
+
+  .card-body h3 {
+    font-size: 16px;
+  }
+
+  .card-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  /* Categories Page (categories.html) */
+  .categories-container {
+    margin: 20px auto !important;
+    padding: 20px !important;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+  }
+
+  .category {
+    width: 100% !important;
+    height: 100px !important;
+    font-size: 18px;
+  }
+
+  .category p {
+    font-size: 14px;
+  }
+
+  /* About Page */
+  .about-main {
+    padding: 50px 5% !important;
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr !important;
+    gap: 15px;
+  }
+
+  .feature {
+    padding: 12px;
+  }
+
+  .about-stats {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .about-stats h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-cta {
+    justify-content: center;
+  }
+
+  .about-visual img {
+    max-width: 100%;
+  }
+
+  /* Auth Pages (Login & Signup) */
+  .auth-section {
+    padding: 40px 20px !important;
+  }
+
+  .auth-box {
+    padding: 25px 20px !important;
+    margin: 0 10px;
+  }
+
+  .auth-box h2 {
+    font-size: 24px;
+  }
+
+  /* Modal & Form */
+  #modal-overlay .modal-container,
+  #add-event-overlay > div {
+    max-width: 95%;
+  }
+
+  /* Footer */
+  footer {
+    padding: 30px 20px !important;
+    margin: 15px 0;
+  }
+}
+
+/* Mobile Styles (max-width: 480px) */
+@media (max-width: 480px) {
+  /* General */
+  body {
+    margin: 0% 2% !important;
+  }
+
+  /* Navbar */
+  .navbar h1.logo {
+    font-size: 20px;
+  }
+
+  .navbar a,
+  #theme-toggle {
+    font-size: 12px;
+    padding: 6px 10px !important;
+  }
+
+  /* Hero */
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .search-box input,
+  .search-box button {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  /* Events Grid - Single column */
+  .event-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* Categories */
+  .category-list .card {
+    width: calc(50% - 10px);
+    min-width: 80px;
+  }
+
+  .category-list {
+    gap: 10px;
+  }
+
+  /* Categories Page */
+  .categories-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .category {
+    height: 80px !important;
+    font-size: 16px;
+  }
+
+  /* Cards */
+  .card-img {
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .user-card-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  /* About Page */
+  .about-main {
+    padding: 40px 4% !important;
+  }
+
+  .about-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-intro {
+    font-size: 1rem;
+  }
+
+  .feature h4 {
+    font-size: 1rem;
+  }
+
+  .feature p {
+    font-size: 0.85rem;
+  }
+
+  .about-stats {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .about-stats h3 {
+    font-size: 1.3rem;
+  }
+
+  .about-stats span {
+    font-size: 0.75rem;
+  }
+
+  .about-cta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Auth Pages */
+  .auth-box {
+    padding: 20px 15px !important;
+  }
+
+  .auth-box h2 {
+    font-size: 22px;
+  }
+
+  .auth-sub {
+    font-size: 13px;
+  }
+
+  .form-group input {
+    padding: 10px;
+  }
+
+  .auth-btn {
+    padding: 12px;
+  }
+
+  /* Buttons & Interactions */
+  .add-event-btn {
+    max-width: 100%;
+  }
+
+  /* Modal close button - easier to tap */
+  #modal-overlay .close-modal,
+  #add-event-overlay button {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 15px !important;
+  }
+}

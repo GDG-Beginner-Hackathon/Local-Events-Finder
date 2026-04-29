@@ -1,17 +1,13 @@
-/* ============================================
-   CONSOLIDATED RESPONSIVE DESIGN
-   Works on: Home, About, Categories, Login, Signup, Register, My-Tickets
-   ============================================ */
-
 /* Tablet Styles (max-width: 768px) */
 @media (max-width: 768px) {
   /* General Layout */
   body {
-    margin: 0% 3% !important;
+    margin: 0 !important;
+    padding: 0 15px !important;
   }
 
   section {
-    padding: 40px 20px !important;
+    padding: 30px 15px !important;
   }
 
   /* Navbar */
@@ -37,10 +33,10 @@
     font-size: 14px;
   }
 
-  /* Hero Section */
+  /* Hero Section - Homepage */
   .hero {
-    padding: 50px 20px !important;
-    min-height: 35vh;
+    padding: 40px 20px !important;
+    text-align: center;
   }
 
   .hero h2 {
@@ -54,39 +50,45 @@
   .search-box {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .search-box input {
-    width: 90%;
+    width: 100%;
     margin-left: 0 !important;
   }
 
   .search-box button {
-    width: 90%;
+    width: 100%;
     margin-left: 0 !important;
   }
 
-  /* Categories Grid (Home page) */
+  /* Categories Section - Homepage */
   .category-list {
     gap: 12px;
+    justify-content: center;
   }
 
   .category-list .card {
-    width: 100px;
-    padding: 12px;
-    font-size: 14px;
+    width: calc(33.33% - 12px);
+    min-width: 90px;
+    padding: 12px 8px;
+    font-size: 13px;
+    text-align: center;
   }
 
-  /* Events Grid (Home page) */
+  /* Events Grid - Homepage */
   .event-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 16px;
   }
 
   .events {
-    padding: 20px !important;
+    padding: 20px 15px !important;
   }
 
   .events-header {
@@ -95,19 +97,15 @@
     text-align: center;
   }
 
-  .events-header h2 {
-    margin-bottom: 0;
-  }
-
   .add-event-btn {
     width: 100%;
     max-width: 200px;
   }
 
-  /* Cards */
+  /* Event Cards */
   .card-img {
-    height: 120px;
-    font-size: 48px;
+    height: 110px;
+    font-size: 44px;
   }
 
   .card-body {
@@ -115,7 +113,7 @@
   }
 
   .card-body h3 {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .card-meta {
@@ -126,8 +124,8 @@
 
   /* Categories Page */
   .categories-container {
-    margin: 20px auto !important;
-    padding: 20px !important;
+    margin: 20px 0 !important;
+    padding: 20px 15px !important;
   }
 
   .categories-grid {
@@ -141,18 +139,14 @@
     font-size: 18px;
   }
 
-  .category p {
-    font-size: 14px;
-  }
-
   /* About Page */
   .about-main {
-    padding: 50px 5% !important;
+    padding: 40px 20px !important;
   }
 
   .about-wrapper {
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     text-align: center;
   }
 
@@ -161,16 +155,12 @@
   }
 
   .about-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .about-features {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 15px;
-  }
-
-  .feature {
-    padding: 12px;
   }
 
   .about-stats {
@@ -178,189 +168,78 @@
     gap: 20px;
   }
 
-  .about-stats h3 {
-    font-size: 1.5rem;
-  }
-
   .about-cta {
     justify-content: center;
   }
 
-  .about-visual img {
-    max-width: 100%;
-  }
-
   /* Auth Pages (Login, Signup, Register) */
   .auth-section {
-    padding: 40px 20px !important;
+    padding: 40px 15px !important;
   }
 
   .auth-box {
-    max-width: 90% !important;
-    width: 90% !important;
+    max-width: 100% !important;
+    width: 100% !important;
     padding: 25px 20px !important;
     margin: 0 auto !important;
+    box-sizing: border-box;
   }
 
   .auth-box h2 {
     font-size: 24px;
   }
 
-  .auth-sub {
-    font-size: 14px;
-  }
-
-  .form-group label {
-    font-size: 14px;
-  }
-
-  .form-group input {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .auth-btn {
-    padding: 12px;
-    font-size: 15px;
-  }
-
   /* Registration Page Specific */
   .event-summary {
     padding: 15px !important;
   }
-  
-  .event-summary h3 {
-    font-size: 18px;
-  }
-  
-  .event-summary p {
-    font-size: 13px;
-  }
-  
+
   .ticket-option {
     padding: 12px !important;
   }
-  
-  .ticket-info h4 {
-    font-size: 14px;
-  }
-  
-  .ticket-info p {
-    font-size: 11px;
-  }
-  
-  .ticket-price {
-    font-size: 16px;
-  }
-  
+
   .form-row {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  
+
   .quantity-selector {
     justify-content: center;
-  }
-  
-  .total-amount h3 {
-    font-size: 16px;
-  }
-  
-  .total-amount span {
-    font-size: 20px;
-  }
-  
-  .register-btn-submit {
-    padding: 12px;
-    font-size: 15px;
-  }
-  
-  .payment-option {
-    padding: 10px;
-    font-size: 14px;
   }
 
   /* My Tickets Page */
   .tickets-container {
-    margin: 20px auto !important;
+    margin: 20px 0 !important;
     padding: 15px !important;
-    width: 90% !important;
+    width: 100% !important;
   }
-  
-  .tickets-container h2 {
-    font-size: 24px;
-  }
-  
+
   .ticket-card {
     padding: 15px !important;
-    margin-bottom: 15px;
   }
-  
+
   .ticket-header h3 {
     font-size: 16px;
-    max-width: 70%;
   }
-  
-  .ticket-badge {
-    font-size: 10px;
-    padding: 3px 10px;
-  }
-  
-  .ticket-details {
-    gap: 12px;
-    font-size: 12px;
-    margin: 10px 0;
-    flex-wrap: wrap;
-  }
-  
-  .ticket-details span {
-    font-size: 12px;
-  }
-  
+
   .delete-ticket-btn {
     width: 28px;
     height: 28px;
     font-size: 16px;
-    top: 12px;
-    right: 12px;
-  }
-  
-  .add-event-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
   }
 
   /* Modal */
   #modal-overlay .modal-container,
   #add-event-overlay > div {
     max-width: 95%;
-  }
-
-  /* Confirmation Modal */
-  .confirm-content {
-    max-width: 90%;
-    margin: 0 20px;
-    padding: 20px;
-  }
-  
-  .confirm-content h3 {
-    font-size: 18px;
-  }
-  
-  .confirm-content p {
-    font-size: 14px;
-  }
-  
-  .confirm-buttons button {
-    padding: 8px 16px;
-    font-size: 14px;
+    margin: 0 auto;
   }
 
   /* Footer */
   footer {
-    padding: 30px 20px !important;
+    padding: 25px 20px !important;
     margin: 15px 0;
+    text-align: center;
   }
 }
 
@@ -368,7 +247,11 @@
 @media (max-width: 480px) {
   /* General */
   body {
-    margin: 0% 2% !important;
+    padding: 0 10px !important;
+  }
+
+  section {
+    padding: 25px 10px !important;
   }
 
   /* Navbar */
@@ -382,7 +265,11 @@
     padding: 6px 10px !important;
   }
 
-  /* Hero */
+  /* Hero Section */
+  .hero {
+    padding: 30px 15px !important;
+  }
+
   .hero h2 {
     font-size: 20px;
   }
@@ -393,40 +280,34 @@
 
   .search-box input,
   .search-box button {
-    width: 100%;
     padding: 12px 16px;
   }
 
-  /* Events Grid - Single column */
-  .event-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px;
-  }
-
-  /* Categories */
+  /* Categories - 2 columns on mobile */
   .category-list .card {
     width: calc(50% - 10px);
-    min-width: 80px;
+    min-width: auto;
+    font-size: 13px;
   }
 
   .category-list {
     gap: 10px;
   }
 
-  /* Categories Page */
-  .categories-grid {
+  /* Events Grid - 1 column on mobile */
+  .event-grid {
     grid-template-columns: 1fr !important;
-  }
-
-  .category {
-    height: 80px !important;
-    font-size: 16px;
+    gap: 16px;
   }
 
   /* Cards */
   .card-img {
     height: 100px;
     font-size: 40px;
+  }
+
+  .card-body h3 {
+    font-size: 16px;
   }
 
   .user-card-actions {
@@ -440,25 +321,27 @@
     font-size: 13px;
   }
 
+  /* Categories Page */
+  .categories-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .category {
+    height: 80px !important;
+    font-size: 16px;
+  }
+
   /* About Page */
   .about-main {
-    padding: 40px 4% !important;
+    padding: 30px 15px !important;
   }
 
   .about-content h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
-  .about-intro {
-    font-size: 1rem;
-  }
-
-  .feature h4 {
-    font-size: 1rem;
-  }
-
-  .feature p {
-    font-size: 0.85rem;
+  .about-features {
+    grid-template-columns: 1fr !important;
   }
 
   .about-stats {
@@ -467,11 +350,7 @@
   }
 
   .about-stats h3 {
-    font-size: 1.3rem;
-  }
-
-  .about-stats span {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
   }
 
   .about-cta {
@@ -482,178 +361,79 @@
   .primary-btn,
   .secondary-btn {
     width: 100%;
-    padding: 10px;
   }
 
-  /* Auth Pages (Login, Signup, Register) */
+  /* Auth Pages */
   .auth-box {
-    max-width: 95% !important;
-    width: 95% !important;
     padding: 20px 15px !important;
   }
 
   .auth-box h2 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .auth-sub {
-    font-size: 12px;
-  }
-
-  .form-group label {
     font-size: 13px;
   }
 
   .form-group input {
     padding: 10px;
-    font-size: 13px;
   }
 
   .auth-btn {
     padding: 12px;
-    font-size: 14px;
   }
 
-  /* Registration Page Specific */
-  .event-summary {
-    padding: 12px !important;
-  }
-  
-  .event-summary h3 {
-    font-size: 16px;
-  }
-  
-  .event-summary p {
-    font-size: 12px;
-  }
-  
-  .ticket-types label {
-    font-size: 14px;
-  }
-  
+  /* Registration Page */
   .ticket-option {
-    padding: 10px !important;
     flex-direction: column;
     text-align: center;
     gap: 8px;
   }
-  
-  .ticket-info h4 {
-    font-size: 13px;
-  }
-  
-  .ticket-info p {
-    font-size: 10px;
-  }
-  
+
   .ticket-price {
-    font-size: 14px;
+    font-size: 16px;
   }
-  
-  .quantity-selector {
-    gap: 8px;
-  }
-  
+
   .quantity-btn {
     width: 28px;
     height: 28px;
     font-size: 16px;
   }
-  
+
   .quantity-input {
     width: 45px;
-    padding: 4px;
-    font-size: 14px;
   }
-  
-  .total-amount {
-    padding: 10px;
-  }
-  
-  .total-amount h3 {
-    font-size: 14px;
-  }
-  
-  .total-amount span {
-    font-size: 18px;
-  }
-  
+
   .register-btn-submit {
     padding: 10px;
     font-size: 14px;
   }
-  
-  .payment-option {
-    padding: 8px;
-    font-size: 13px;
-  }
-  
-  .auth-switch {
-    font-size: 12px;
-  }
 
   /* My Tickets Page */
-  .tickets-container {
-    width: 95% !important;
-    padding: 15px !important;
-  }
-  
-  .tickets-container h2 {
-    font-size: 20px;
-  }
-  
   .ticket-card {
     padding: 12px !important;
   }
-  
-  .ticket-header {
-    padding-right: 25px;
-  }
-  
+
   .ticket-header h3 {
     font-size: 14px;
-    max-width: 65%;
   }
-  
-  .ticket-badge {
-    font-size: 9px;
-    padding: 2px 8px;
-  }
-  
+
   .ticket-details {
-    gap: 8px;
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;
   }
-  
-  .ticket-details span {
-    font-size: 11px;
-  }
-  
+
   .delete-ticket-btn {
     width: 24px;
     height: 24px;
     font-size: 14px;
-    top: 10px;
-    right: 10px;
   }
-  
+
   .add-event-btn {
     padding: 8px;
     font-size: 13px;
-  }
-  
-  .empty-tickets {
-    padding: 40px 15px;
-  }
-  
-  .empty-tickets p {
-    font-size: 14px;
-  }
-  
-  .browse-btn {
-    padding: 10px 20px;
-    font-size: 14px;
   }
 
   /* Modal close button */
@@ -664,29 +444,6 @@
     font-size: 18px;
   }
 
-  /* Confirmation Modal */
-  .confirm-content {
-    padding: 15px;
-  }
-  
-  .confirm-content h3 {
-    font-size: 16px;
-  }
-  
-  .confirm-content p {
-    font-size: 13px;
-  }
-  
-  .confirm-buttons {
-    gap: 10px;
-    margin-top: 15px;
-  }
-  
-  .confirm-buttons button {
-    padding: 6px 14px;
-    font-size: 13px;
-  }
-
   /* Footer */
   footer {
     padding: 20px 15px !important;
@@ -695,78 +452,76 @@
 
 /* Extra Small Devices (max-width: 360px) */
 @media (max-width: 360px) {
+  body {
+    padding: 0 8px !important;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+  }
+
+  .category-list .card {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .card-body h3 {
+    font-size: 14px;
+  }
+
   .auth-box h2 {
-    font-size: 18px !important;
+    font-size: 18px;
   }
-  
+
   .ticket-header h3 {
-    font-size: 12px !important;
-  }
-  
-  .ticket-badge {
-    font-size: 8px !important;
+    font-size: 12px;
   }
 }
 
 /* Landscape Mode for Mobile */
 @media (max-width: 768px) and (orientation: landscape) {
-  .auth-section {
+  .hero {
     padding: 20px !important;
   }
-  
+
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
   .auth-box {
     max-width: 80% !important;
-    width: 80% !important;
   }
-  
+
   .ticket-option {
     padding: 8px !important;
   }
-  
-  .event-summary {
-    margin-bottom: 15px;
-  }
-  
-  .tickets-container {
-    margin: 15px auto !important;
-  }
-  
-  .ticket-card {
-    margin-bottom: 12px;
-  }
-  
-  .ticket-details {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
 }
 
-/* Tablet Landscape (1024px and below) */
+/* Desktop Small (1024px and below) */
 @media (max-width: 1024px) and (min-width: 769px) {
+  body {
+    padding: 0 20px !important;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+
   .auth-box {
     max-width: 500px !important;
-    width: 500px !important;
   }
-  
+
   .tickets-container {
     max-width: 700px;
-    width: 700px !important;
-  }
-  
-  .ticket-header h3 {
-    font-size: 17px;
   }
 }
 
-/* Safe area support for notches */
-@supports (padding: max(0px)) {
-  @media (max-width: 480px) {
-    .auth-box {
-      padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
-    }
-    
-    .confirm-content {
-      margin-bottom: max(20px, env(safe-area-inset-bottom));
-    }
+/* Desktop Large (1200px and above) */
+@media (min-width: 1200px) {
+  body {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1400px;
   }
 }

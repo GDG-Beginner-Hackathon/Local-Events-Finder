@@ -377,3 +377,408 @@
     padding: 20px 15px !important;
   }
 }
+
+
+/* ============================================
+   MEDIA QUERIES FOR REGISTRATION & MY-TICKETS PAGES
+   ============================================ */
+
+/* Tablet Styles (max-width: 768px) */
+@media (max-width: 768px) {
+  
+  /* Registration Page */
+  .auth-box {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    padding: 25px 20px !important;
+  }
+  
+  .auth-box h2 {
+    font-size: 24px;
+  }
+  
+  .event-summary {
+    padding: 15px !important;
+  }
+  
+  .event-summary h3 {
+    font-size: 18px;
+  }
+  
+  .event-summary p {
+    font-size: 13px;
+  }
+  
+  .ticket-option {
+    padding: 12px !important;
+  }
+  
+  .ticket-info h4 {
+    font-size: 14px;
+  }
+  
+  .ticket-info p {
+    font-size: 11px;
+  }
+  
+  .ticket-price {
+    font-size: 16px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .quantity-selector {
+    justify-content: center;
+  }
+  
+  .total-amount h3 {
+    font-size: 16px;
+  }
+  
+  .total-amount span {
+    font-size: 20px;
+  }
+  
+  .register-btn-submit {
+    padding: 12px;
+    font-size: 15px;
+  }
+  
+  .payment-option {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  /* My Tickets Page */
+  .tickets-container {
+    margin: 20px auto !important;
+    padding: 15px !important;
+  }
+  
+  .tickets-container h2 {
+    font-size: 24px;
+  }
+  
+  .ticket-card {
+    padding: 15px !important;
+    margin-bottom: 15px;
+  }
+  
+  .ticket-header h3 {
+    font-size: 16px;
+    max-width: 70%;
+  }
+  
+  .ticket-badge {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  
+  .ticket-details {
+    gap: 12px;
+    font-size: 12px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+  }
+  
+  .ticket-details span {
+    font-size: 12px;
+  }
+  
+  .delete-ticket-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    top: 12px;
+    right: 12px;
+  }
+  
+  .add-event-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  /* Confirmation Modal */
+  .confirm-content {
+    max-width: 90%;
+    margin: 0 20px;
+    padding: 20px;
+  }
+  
+  .confirm-content h3 {
+    font-size: 18px;
+  }
+  
+  .confirm-content p {
+    font-size: 14px;
+  }
+  
+  .confirm-buttons button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  /* Toast Notification */
+  div[style*="position: fixed; bottom: 20px"] {
+    font-size: 12px !important;
+    padding: 10px 20px !important;
+    width: 90%;
+    text-align: center;
+  }
+}
+
+/* Mobile Styles (max-width: 480px) */
+@media (max-width: 480px) {
+  
+  /* Registration Page */
+  .auth-box {
+    max-width: 95% !important;
+    padding: 20px 15px !important;
+  }
+  
+  .auth-box h2 {
+    font-size: 20px;
+  }
+  
+  .auth-sub {
+    font-size: 12px;
+  }
+  
+  .event-summary {
+    padding: 12px !important;
+  }
+  
+  .event-summary h3 {
+    font-size: 16px;
+  }
+  
+  .event-summary p {
+    font-size: 12px;
+  }
+  
+  .ticket-types label {
+    font-size: 14px;
+  }
+  
+  .ticket-option {
+    padding: 10px !important;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  
+  .ticket-info h4 {
+    font-size: 13px;
+  }
+  
+  .ticket-info p {
+    font-size: 10px;
+  }
+  
+  .ticket-price {
+    font-size: 14px;
+  }
+  
+  .form-group label {
+    font-size: 13px;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .quantity-selector {
+    gap: 8px;
+  }
+  
+  .quantity-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+  
+  .quantity-input {
+    width: 45px;
+    padding: 4px;
+    font-size: 14px;
+  }
+  
+  .total-amount {
+    padding: 10px;
+  }
+  
+  .total-amount h3 {
+    font-size: 14px;
+  }
+  
+  .total-amount span {
+    font-size: 18px;
+  }
+  
+  .register-btn-submit {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .payment-option {
+    padding: 8px;
+    font-size: 13px;
+  }
+  
+  .auth-switch {
+    font-size: 12px;
+  }
+  
+  /* My Tickets Page */
+  .tickets-container h2 {
+    font-size: 20px;
+  }
+  
+  .ticket-card {
+    padding: 12px !important;
+  }
+  
+  .ticket-header {
+    padding-right: 25px;
+  }
+  
+  .ticket-header h3 {
+    font-size: 14px;
+    max-width: 65%;
+  }
+  
+  .ticket-badge {
+    font-size: 9px;
+    padding: 2px 8px;
+  }
+  
+  .ticket-details {
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .ticket-details span {
+    font-size: 11px;
+  }
+  
+  .delete-ticket-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .add-event-btn {
+    padding: 8px;
+    font-size: 13px;
+  }
+  
+  .empty-tickets {
+    padding: 40px 15px;
+  }
+  
+  .empty-tickets p {
+    font-size: 14px;
+  }
+  
+  .browse-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  /* Confirmation Modal */
+  .confirm-content {
+    padding: 15px;
+  }
+  
+  .confirm-content h3 {
+    font-size: 16px;
+  }
+  
+  .confirm-content p {
+    font-size: 13px;
+  }
+  
+  .confirm-buttons {
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .confirm-buttons button {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  
+  /* Registration Page */
+  .auth-section {
+    padding: 20px !important;
+  }
+  
+  .auth-box {
+    max-width: 80% !important;
+  }
+  
+  .ticket-option {
+    padding: 8px !important;
+  }
+  
+  .event-summary {
+    margin-bottom: 15px;
+  }
+  
+  /* My Tickets Page */
+  .tickets-container {
+    margin: 15px auto !important;
+  }
+  
+  .ticket-card {
+    margin-bottom: 12px;
+  }
+  
+  .ticket-details {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  
+  /* Registration Page */
+  .auth-box {
+    max-width: 500px !important;
+  }
+  
+  /* My Tickets Page */
+  .tickets-container {
+    max-width: 700px;
+  }
+  
+  .ticket-header h3 {
+    font-size: 17px;
+  }
+}
+
+/* High Resolution Mobile (with notch/gesture bar) */
+@supports (padding: max(0px)) {
+  @media (max-width: 480px) {
+    .auth-box {
+      padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
+    }
+    
+    .confirm-content {
+      margin-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+  }
+}

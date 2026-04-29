@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for Event - EventFinder</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/register.css">
+  <link rel="stylesheet" href="styles/responsiveness.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">EventFinder</h1>
+    <nav>
+      <button id="theme-toggle">🌙 Dark Mode</button>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="about-us.html">About Us</a>
+    </nav>
+  </header>
+
+  <!-- Registration Form -->
+  <section class="auth-section">
+    <div class="auth-box" style="max-width: 550px;">
+      <h2>🎟 Register for Event</h2>
+      <p class="auth-sub">Secure your spot at this amazing event</p>
+
+      <div class="auth-form">
+        
+        <!-- Event Summary (will be populated from URL params) -->
+        <div class="event-summary" id="event-summary">
+          <h3 id="event-title">Loading event details...</h3>
+          <p id="event-location">📍 Location</p>
+          <p id="event-date">📅 Date</p>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="reg-name" placeholder="Enter your full name" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="reg-email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="reg-phone" placeholder="+251 XXX XXX XXX" />
+          </div>
+        </div>
+
+        <!-- Ticket Types -->
+        <div class="ticket-types">
+          <label style="display: block; margin-bottom: 10px; font-weight: bold;">Select Ticket Type *</label>
+          
+          <div class="ticket-option" data-price="0" data-type="free" onclick="selectTicket(this, 'free', 0)">
+            <div class="ticket-info">
+              <h4>🎫 Free Entry</h4>
+              <p>Basic admission</p>
+            </div>
+            <div class="ticket-price">FREE</div>
+          </div>
+
+          <div class="ticket-option" data-type="regular" onclick="selectTicket(this, 'regular', getRegularPrice())">
+            <div class="ticket-info">
+              <h4>🎟️ Regular Ticket</h4>
+              <p>Standard event access</p>
+            </div>
+            <div class="ticket-price" id="regular-price-display">Loading...</div>
+          </div>
+
+          <div class="ticket-option" data-type="vip" onclick="selectTicket(this, 'vip', getVIPPrice())">
+            <div class="ticket-info">
+              <h4>⭐ VIP Pass</h4>
+              <p>Premium seating + VIP benefits (2x Regular)</p>
+            </div>
+            <div class="ticket-price" id="vip-price-display">Loading...</div>
+          </div>
+        </div>
+
+        <!-- Quantity Selector (only shows for paid tickets) -->
+        <div class="form-group" id="quantity-section" style="display: none;">
+          <label>Number of Tickets</label>
+          <div class="quantity-selector">
+            <button type="button" class="quantity-btn" onclick="changeQuantity(-1)">−</button>
+            <input type="number" id="ticket-quantity" class="quantity-input" value="1" min="1" max="10" readonly />
+            <button type="button" class="quantity-btn" onclick="changeQuantity(1)">+</button>
+          </div>
+        </div>
+
+        <!-- Total Amount -->
+        <div class="total-amount" id="total-section" style="display: none;">
+          <h3>Total Amount: <span id="total-price">0</span> ETB</h3>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods" id="payment-section" style="display: none;">
+          <label style="display: block; margin-bottom: 10px; font-weight: bold;">Payment Method *</label>
+          
+          <div class="payment-option" data-method="telebirr" onclick="selectPayment(this, 'telebirr')">
+            <span>📱</span>
+            <span>TeleBirr</span>
+          </div>
+          
+          <div class="payment-option" data-method="cbebirr" onclick="selectPayment(this, 'cbebirr')">
+            <span>💳</span>
+            <span>CBE Birr</span>
+          </div>
+          
+          <div class="payment-option" data-method="cash" onclick="selectPayment(this, 'cash')">
+            <span>💰</span>
+            <span>Pay at Venue (Cash)</span>
+          </div>
+        </div>
+
+        <p id="register-error" class="auth-error"></p>
+
+        <button class="register-btn-submit" onclick="processRegistration()">
+          Confirm Registration →
+        </button>
+
+        <p class="auth-switch" style="margin-top: 15px;">
+          <a href="index.html">← Back to Events</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmation-modal" class="confirmation-modal">
+    <div class="confirmation-content">
+      <span class="close-confirm" onclick="closeConfirmation()">&times;</span>
+      <h3>✅ Registration Successful!</h3>
+      <p id="confirm-message">Your ticket has been booked.</p>
+      <p style="margin-top: 15px; font-size: 14px; color: gray;">
+        A confirmation email has been sent to your email address.
+      </p>
+      <button class="auth-btn" style="margin-top: 20px;" onclick="closeAndRedirect()">
+        View My Tickets
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 EventFinder. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/register.js"></script>
+</body>
+</html>

@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>About Us - EventFinder</title>
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/about.css">
-  <link rel="stylesheet" href="styles/responsiveness.css" />
+  <link rel="stylesheet" href="styles/home-auth.css">
+  <link rel="stylesheet" href="styles/responsiveness.css">
 </head>
 <body>
 
@@ -15,95 +17,116 @@
     <nav>
       <button id="theme-toggle">🌙 Dark Mode</button>
       <a href="index.html">Home</a>
-      <a href="my-tickets.html">My Tickets</a>
+      <a href="about-us.html">About Us</a>
       <a href="signup.html">Sign Up</a>
     </nav>
   </header>
 
-
+  <!-- About Main Section - Updated with better structure -->
   <section class="about-main">
-  <div class="about-wrapper">
+    <div class="about-wrapper">
 
-    <!-- Left Content -->
-    <div class="about-content">
-      <span class="about-label">About Us</span>
-      <h2>Redefining How You Discover Events</h2>
+      <!-- Left Content -->
+      <div class="about-content">
+        <span class="about-label">About Us</span>
+        <h2>Redefining How You Discover Events</h2>
 
-      <p class="about-intro">
-        EventFinder is a modern event discovery platform built to connect people
-        with experiences that matter. We aggregate and organize events across
-        multiple categories, making it effortless to explore what’s happening
-        around you.
-      </p>
+        <p class="about-intro">
+          EventFinder is a modern event discovery platform built to connect people
+          with experiences that matter. We aggregate and organize events across
+          multiple categories, making it effortless to explore what's happening
+          around you.
+        </p>
 
-      <p>
-        Whether you're searching for tech conferences, music festivals,
-        workshops, or social gatherings, EventFinder delivers personalized
-        recommendations tailored to your interests. Our platform also empowers
-        event organizers with tools to reach the right audience and maximize
-        engagement.
-      </p>
+        <p>
+          Whether you're searching for tech conferences, music festivals,
+          workshops, or social gatherings, EventFinder delivers personalized
+          recommendations tailored to your interests. Our platform also empowers
+          event organizers with tools to reach the right audience and maximize
+          engagement.
+        </p>
 
-      <!-- Feature highlights -->
-      <div class="about-features">
-        <div class="feature">
-          <h4>Smart Discovery</h4>
-          <p>Filter events by category, location, and preferences.</p>
+        <!-- Feature highlights -->
+        <div class="about-features">
+          <div class="feature">
+            <h4>🎯 Smart Discovery</h4>
+            <p>Filter events by category, location, and preferences.</p>
+          </div>
+
+          <div class="feature">
+            <h4>⚡ Real-Time Updates</h4>
+            <p>Stay informed with the latest and trending events.</p>
+          </div>
+
+          <div class="feature">
+            <h4>👥 Community Focused</h4>
+            <p>Connect with people who share your interests.</p>
+          </div>
+
+          <div class="feature">
+            <h4>🛠️ Organizer Tools</h4>
+            <p>Promote and manage events efficiently.</p>
+          </div>
         </div>
 
-        <div class="feature">
-          <h4>Real-Time Updates</h4>
-          <p>Stay informed with the latest and trending events.</p>
+        <!-- Stats -->
+        <div class="about-stats">
+          <div>
+            <h3>500+</h3>
+            <span>Events Hosted</span>
+          </div>
+          <div>
+            <h3>10K+</h3>
+            <span>Active Users</span>
+          </div>
+          <div>
+            <h3>12+</h3>
+            <span>Event Categories</span>
+          </div>
+          <div>
+            <h3>98%</h3>
+            <span>User Satisfaction</span>
+          </div>
         </div>
 
-        <div class="feature">
-          <h4>Community Focused</h4>
-          <p>Connect with people who share your interests.</p>
-        </div>
-
-        <div class="feature">
-          <h4>Organizer Tools</h4>
-          <p>Promote and manage events efficiently.</p>
+        <!-- CTA -->
+        <div class="about-cta">
+          <button class="primary-btn" onclick="window.location.href='index.html'">🎟 Explore Events</button>
+          <button class="secondary-btn" onclick="window.location.href='index.html'">➕ Create Event</button>
         </div>
       </div>
 
-      <!-- Stats -->
-      <div class="about-stats">
-        <div>
-          <h3>10+</h3>
-          <span>Events Hosted</span>
-        </div>
-        <div>
-          <h3>10+</h3>
-          <span>Active Users</span>
-        </div>
-        <div>
-          <h3>10+</h3>
-          <span>Event Categories</span>
-        </div>
-        <div>
-          <h3>99%</h3>
-          <span>User Satisfaction</span>
-        </div>
+      <!-- Right Image -->
+      <div class="about-visual">
+        <img src="assets/images/about.png" alt="Event experience">
       </div>
 
-      <!-- CTA -->
-      <div class="about-cta">
-        <button class="primary-btn" onclick="window.location.href='index.html#explore'">Explore Events</button>
-        <button class="secondary-btn" onclick="window.location.href='index.html#add-event'">Create Event</button>
+    </div>
+  </section>
+
+  <!-- Mission Section - NEW -->
+  <section class="mission-section">
+    <div class="mission-container">
+      <div class="mission-card">
+        <div class="mission-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p>To connect people with meaningful experiences and help event organizers reach their audience effectively.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">👁️</div>
+        <h3>Our Vision</h3>
+        <p>To become Ethiopia's #1 event discovery platform, making every moment count.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">💡</div>
+        <h3>Our Values</h3>
+        <p>Innovation, community, accessibility, and excellence in everything we do.</p>
       </div>
     </div>
-
-    <!-- Right Image -->
-    <div class="about-visual">
-      <img src="assets/images/about.png" alt="Event experience">
-    </div>
-
-  </div>
-</section>
-  
+  </section>
 
   <footer>
+    <a href="about-us.html">About Us</a>
     <p>© 2026 EventFinder. All rights reserved.</p>
   </footer>
 

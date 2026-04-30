@@ -53,7 +53,6 @@
 | **HTML5** | Semantic structure |
 | **CSS3** | Styling, animations, responsive design |
 | **JavaScript** | Interactivity, DOM manipulation, localStorage |
-| **LocalStorage** | User data, events, ticket registrations persistence |
 
 ---
 
@@ -64,7 +63,6 @@ Local-Events-Finder/
 |-------------|-------------|
 | 📄 **index.html** | Homepage with event grid, category filters, search bar, and add event form |
 | 📄 **about-us.html** | About page with mission, vision, team members, and platform stats |
-| 📄 **categories.html** | Browse events by 10+ categories with quick navigation |
 | 📄 **login.html** | User login page with email/password authentication |
 | 📄 **signup.html** | User registration page with validation |
 | 📄 **register.html** | Event ticket booking with quantity selector and payment methods |
@@ -75,9 +73,12 @@ Local-Events-Finder/
 | ↳ **login.css** | Login page specific styles + responsive media queries |
 | ↳ **signup.css** | Signup page specific styles + responsive media queries |
 | ↳ **about.css** | About page specific styles + responsive media queries |
+| ↳ **responsiveness.css** | General responsive media queries |
 | 📁 **scripts/** | All JavaScript files |
 | ↳ **theme.js** | Dark mode toggle logic and localStorage persistence |
 | ↳ **main.js** | Homepage functionality (filtering, CRUD, modals, events) |
+| ↳ **register.js** | Registration page functionality |
+| ↳ **my-tickets.js** | My tickets page functionality |
 | 📁 **assets/** | Static assets |
 | ↳ **images/** | Hero background image and event thumbnails |
 | 📄 **README.md** | Project documentation |
@@ -218,7 +219,7 @@ Local-Events-Finder/
 | **Betelhem Solomon** | Member |
 | **Fitsum Badeg** | Member |
 | **Trufat Admasu** | Member |
-
+| **Kalkidan Asmamaw** | Member |
 ---
 
 ## 📄 License

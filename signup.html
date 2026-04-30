@@ -64,42 +64,62 @@
 
   <script src="scripts/theme.js"></script>
   <script>
-    function handleSignup() {
-      const name = document.getElementById('signup-name').value.trim();
-      const email = document.getElementById('signup-email').value.trim();
-      const password = document.getElementById('signup-password').value.trim();
-      const confirm = document.getElementById('signup-confirm').value.trim();
-      const error = document.getElementById('signup-error');
-      const success = document.getElementById('signup-success');
+     function handleSignup() {
+  const name = document.getElementById('signup-name').value.trim();
+  const email = document.getElementById('signup-email').value.trim();
+  const password = document.getElementById('signup-password').value.trim();
+  const confirm = document.getElementById('signup-confirm').value.trim();
+  const error = document.getElementById('signup-error');
+  const success = document.getElementById('signup-success');
 
-      error.textContent = '';
-      success.textContent = '';
+  error.textContent = '';
+  success.textContent = '';
 
-      if (!name || !email || !password || !confirm) {
-        error.textContent = '⚠️ Please fill in all fields.';
-        return;
-      }
+  // Check for empty fields
+  if (!name || !email || !password || !confirm) {
+    error.textContent = '⚠️ Please fill in all fields.';
+    return;
+  }
 
-      if (password !== confirm) {
-        error.textContent = '⚠️ Passwords do not match.';
-        return;
-      }
+  // Email format validation
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    error.textContent = '⚠️ Please enter a valid email address (e.g., name@example.com).';
+    return;
+  }
 
-      if (password.length < 6) {
-        error.textContent = '⚠️ Password must be at least 6 characters.';
-        return;
-      }
+  // Password match validation
+  if (password !== confirm) {
+    error.textContent = '⚠️ Passwords do not match.';
+    return;
+  }
 
-      // Save user to localStorage
-      const user = { name, email, password };
-      localStorage.setItem('eventfinder_user', JSON.stringify(user));
+  // Password length validation
+  if (password.length < 6) {
+    error.textContent = '⚠️ Password must be at least 6 characters.';
+    return;
+  }
 
-      success.textContent = '✅ Account created! Redirecting to login...';
-
-      setTimeout(() => {
-        window.location.href = 'login.html';
-      }, 2000);
+  // Check if email already exists
+  const existingUser = localStorage.getItem('eventfinder_user');
+  if (existingUser) {
+    const user = JSON.parse(existingUser);
+    if (user.email === email) {
+      error.textContent = '⚠️ Email already registered. Please login instead.';
+      return;
     }
+  }
+
+  // Save user to localStorage
+  const user = { name, email, password };
+  localStorage.setItem('eventfinder_user', JSON.stringify(user));
+
+  success.textContent = '✅ Account created! Redirecting to login...';
+
+  setTimeout(() => {
+    window.location.href = 'login.html';
+  }, 2000);
+}
   </script>
 
 </body>

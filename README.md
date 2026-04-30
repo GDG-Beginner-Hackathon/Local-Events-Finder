@@ -101,4 +101,4 @@ Add event booking/registration system
 ## 👥 Team Members
          Name              Role
 1   Ermiyas Getachew – Team leader
-2   
+2   Christian Amare - member

@@ -154,7 +154,6 @@ Local-Events-Finder/
 | Google Chrome | ✅ Fully functional |
 | Mozilla Firefox | ✅ Fully functional |
 | Microsoft Edge | ✅ Fully functional |
-| Safari | ✅ Fully functional |
 
 ### Responsive Breakpoints Tested
 
@@ -163,7 +162,7 @@ Local-Events-Finder/
 | Desktop | 1200px+ | ✅ Perfect |
 | Laptop | 1024px | ✅ Perfect |
 | Tablet | 768px | ✅ 2-column layout |
-| Mobile | 480px | ✅ 1-column layout |
+| Mobile | 480px | ✅ 2-column layout |
 | Small Phone | 360px | ✅ Optimized |
 
 ### Features Tested

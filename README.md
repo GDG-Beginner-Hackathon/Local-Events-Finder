@@ -60,32 +60,27 @@
 ## 📁 Project Structure
 
 Local-Events-Finder/
-│
-├── 📄 index.html # Homepage (event listing)
-├── 📄 about-us.html # About Us page
-├── 📄 login.html # User login
-├── 📄 signup.html # User registration
-├── 📄 register.html # Event registration & ticket booking
-├── 📄 my-tickets.html # View/manage booked tickets
-│
-├── 📁 styles/
-│ ├── base.css # Global styles + dark mode
-│ ├── home-auth.css # Homepage, login, signup styles
-│ └── about.css # About page styles
-│ └── my-ticket.css  
-│ └── register.css
-│ └── responsiveness.css
-│
-├── 📁 scripts/
-│ ├── theme.js # Dark mode toggle logic
-│ └── main.js # Homepage functionality
-│ └── my-ticket.js 
-│ └── register.js
-│
-├── 📁 assets/
-│ └── images/ # Image assets
-│
-└── 📄 README.md # Project documentation
+| File/Folder | Description |
+|-------------|-------------|
+| 📄 **index.html** | Homepage with event grid, category filters, search bar, and add event form |
+| 📄 **about-us.html** | About page with mission, vision, team members, and platform stats |
+| 📄 **categories.html** | Browse events by 10+ categories with quick navigation |
+| 📄 **login.html** | User login page with email/password authentication |
+| 📄 **signup.html** | User registration page with validation |
+| 📄 **register.html** | Event ticket booking with quantity selector and payment methods |
+| 📄 **my-tickets.html** | View and manage all booked tickets with delete option |
+| 📁 **styles/** | All CSS files for styling |
+| ↳ **base.css** | Global styles, CSS variables, and dark mode |
+| ↳ **homepage.css** | Homepage specific styles + responsive media queries |
+| ↳ **login.css** | Login page specific styles + responsive media queries |
+| ↳ **signup.css** | Signup page specific styles + responsive media queries |
+| ↳ **about.css** | About page specific styles + responsive media queries |
+| 📁 **scripts/** | All JavaScript files |
+| ↳ **theme.js** | Dark mode toggle logic and localStorage persistence |
+| ↳ **main.js** | Homepage functionality (filtering, CRUD, modals, events) |
+| 📁 **assets/** | Static assets |
+| ↳ **images/** | Hero background image and event thumbnails |
+| 📄 **README.md** | Project documentation |
 
 ---
 

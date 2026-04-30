@@ -268,6 +268,7 @@
   /* Hero Section */
   .hero {
     padding: 30px 15px !important;
+    height: 20vh;
   }
 
   .hero h2 {

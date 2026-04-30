@@ -1,0 +1,528 @@
+/* Tablet Styles (max-width: 768px) */
+@media (max-width: 768px) {
+  /* General Layout */
+  body {
+    margin: 0 !important;
+    padding: 0 15px !important;
+  }
+
+  section {
+    padding: 30px 15px !important;
+  }
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 20px 15px !important;
+    margin: 15px 0px !important;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .navbar a,
+  #theme-toggle {
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    font-size: 14px;
+  }
+
+  /* Hero Section - Homepage */
+  .hero {
+    padding: 40px 20px !important;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .search-box input {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .search-box button {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  /* Categories Section - Homepage */
+  .category-list {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .category-list .card {
+    width: calc(33.33% - 12px);
+    min-width: 90px;
+    padding: 12px 8px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* Events Grid - Homepage */
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+  }
+
+  .events {
+    padding: 20px 15px !important;
+  }
+
+  .events-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .add-event-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* Event Cards */
+  .card-img {
+    height: 110px;
+    font-size: 44px;
+  }
+
+  .card-body {
+    padding: 10px 12px 14px;
+  }
+
+  .card-body h3 {
+    font-size: 15px;
+  }
+
+  .card-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  /* Categories Page */
+  .categories-container {
+    margin: 20px 0 !important;
+    padding: 20px 15px !important;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+  }
+
+  .category {
+    width: 100% !important;
+    height: 100px !important;
+    font-size: 18px;
+  }
+
+  /* About Page */
+  .about-main {
+    padding: 40px 20px !important;
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-features {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+  }
+
+  .about-stats {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .about-cta {
+    justify-content: center;
+  }
+
+  /* Auth Pages (Login, Signup, Register) */
+  .auth-section {
+    padding: 40px 15px !important;
+  }
+
+  .auth-box {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 25px 20px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+
+  .auth-box h2 {
+    font-size: 24px;
+  }
+
+  /* Registration Page Specific */
+  .event-summary {
+    padding: 15px !important;
+  }
+
+  .ticket-option {
+    padding: 12px !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .quantity-selector {
+    justify-content: center;
+  }
+
+  /* My Tickets Page */
+  .tickets-container {
+    margin: 20px 0 !important;
+    padding: 15px !important;
+    width: 100% !important;
+  }
+
+  .ticket-card {
+    padding: 15px !important;
+  }
+
+  .ticket-header h3 {
+    font-size: 16px;
+  }
+
+  .delete-ticket-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  /* Modal */
+  #modal-overlay .modal-container,
+  #add-event-overlay > div {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  footer {
+    padding: 25px 20px !important;
+    margin: 15px 0;
+    text-align: center;
+  }
+}
+
+/* Mobile Styles (max-width: 480px) */
+@media (max-width: 480px) {
+  /* General */
+  body {
+    padding: 0 10px !important;
+  }
+
+  section {
+    padding: 25px 10px !important;
+  }
+
+  /* Navbar */
+  .navbar h1.logo {
+    font-size: 20px;
+  }
+
+  .navbar a,
+  #theme-toggle {
+    font-size: 12px;
+    padding: 6px 10px !important;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 30px 15px !important;
+    height: 20vh;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .search-box input,
+  .search-box button {
+    padding: 12px 16px;
+  }
+
+  /* Categories - 2 columns on mobile */
+  .category-list .card {
+    width: calc(50% - 10px);
+    min-width: auto;
+    font-size: 13px;
+  }
+
+  .category-list {
+    gap: 10px;
+  }
+
+  /* Events Grid - 1 column on mobile */
+  .event-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* Cards */
+  .card-img {
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .card-body h3 {
+    font-size: 16px;
+  }
+
+  .user-card-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  /* Categories Page */
+  .categories-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .category {
+    height: 80px !important;
+    font-size: 16px;
+  }
+
+  /* About Page */
+  .about-main {
+    padding: 30px 15px !important;
+  }
+
+  .about-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-stats {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .about-stats h3 {
+    font-size: 1.2rem;
+  }
+
+  .about-cta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  /* Auth Pages */
+  .auth-box {
+    padding: 20px 15px !important;
+  }
+
+  .auth-box h2 {
+    font-size: 22px;
+  }
+
+  .auth-sub {
+    font-size: 13px;
+  }
+
+  .form-group input {
+    padding: 10px;
+  }
+
+  .auth-btn {
+    padding: 12px;
+  }
+
+  /* Registration Page */
+  .ticket-option {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .ticket-price {
+    font-size: 16px;
+  }
+
+  .quantity-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .quantity-input {
+    width: 45px;
+  }
+
+  .register-btn-submit {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* My Tickets Page */
+  .ticket-card {
+    padding: 12px !important;
+  }
+
+  .ticket-header h3 {
+    font-size: 14px;
+  }
+
+  .ticket-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .delete-ticket-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .add-event-btn {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  /* Modal close button */
+  #modal-overlay .close-modal,
+  #add-event-overlay button {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 15px !important;
+  }
+}
+
+/* Extra Small Devices (max-width: 360px) */
+@media (max-width: 360px) {
+  body {
+    padding: 0 8px !important;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+  }
+
+  .category-list .card {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .card-body h3 {
+    font-size: 14px;
+  }
+
+  .auth-box h2 {
+    font-size: 18px;
+  }
+
+  .ticket-header h3 {
+    font-size: 12px;
+  }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 20px !important;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .auth-box {
+    max-width: 80% !important;
+  }
+
+  .ticket-option {
+    padding: 8px !important;
+  }
+}
+
+/* Desktop Small (1024px and below) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  body {
+    padding: 0 20px !important;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+
+  .auth-box {
+    max-width: 500px !important;
+  }
+
+  .tickets-container {
+    max-width: 700px;
+  }
+}
+
+/* Desktop Large (1200px and above) */
+@media (min-width: 1200px) {
+  body {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+}

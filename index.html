@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Local Event Finder</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/home-auth.css" />
+    <link rel="stylesheet" href="styles/responsiveness.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <h1 class="logo">EventFinder</h1>
+      <nav>
+        <button id="theme-toggle">🌙 Dark Mode</button>
+        <a href="my-tickets.html">My Tickets</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Discover Events Near You</h2>
+      <p>Find concerts, tech meetups, business events and more...</p>
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search events..."
+          oninput="searchEvents()"
+        />
+        <button onclick="searchEvents()">Search</button>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+      <h2>Browse by Category</h2>
+      <div class="category-list">
+        <div class="card" onclick="filterByCategory('all')">🌐 All</div>
+        <div class="card" onclick="filterByCategory('music')">🎵 Music</div>
+        <div class="card" onclick="filterByCategory('religion')">
+          ⛪️ Religion
+        </div>
+        <div class="card" onclick="filterByCategory('business')">
+          💼 Business
+        </div>
+        <div class="card" onclick="filterByCategory('tech')">💻 Technology</div>
+        <div class="card" onclick="filterByCategory('health')">
+          ❤️ Wellbeing
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events">
+      <div class="events-header">
+        <h2 id="explore">Upcoming Events</h2>
+        <button class="add-event-btn" onclick="checkLoginBeforeAdd()">+ Add Event</button>
+      </div>
+      <div class="event-grid">
+        <div class="event-card" onclick="openModal('tech')">
+          <div class="card-img">💻</div>
+          <div class="card-body">
+            <h3>Tech Meetup</h3>
+            <div class="card-meta">
+              <span>📅 Apr 20</span>
+              <span>📍 Addis Ababa</span>
+            </div>
+            <p class="card-desc">
+              Join developers, designers and founders for an evening of
+              lightning talks, networking and demos of the latest projects built
+              right here in Addis. Bring your laptop, ideas, and business cards
+              — this is one evening you don't want to miss.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('concert')">
+          <div class="card-img">🎵</div>
+          <div class="card-body">
+            <h3>Live Concert</h3>
+            <div class="card-meta">
+              <span>📅 Apr 25</span>
+              <span>📍 Bole</span>
+            </div>
+            <p class="card-desc">
+              An unforgettable evening of live music featuring local artists.
+              Enjoy great performances, food stalls, and a vibrant crowd. Doors
+              open at 7:00 PM. Come early to grab the best spots near the stage.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('church')">
+          <div class="card-img">⛪️</div>
+          <div class="card-body">
+            <h3>Church Conference</h3>
+            <div class="card-meta">
+              <span>📅 Apr 28</span>
+              <span>📍 Kazanchis</span>
+            </div>
+            <p class="card-desc">
+              A two-day youth conference focused on faith, leadership and
+              community service. Featuring workshops, worship sessions and
+              keynote speakers from across Ethiopia.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('football')">
+          <div class="card-img">⚽️</div>
+          <div class="card-body">
+            <h3>Football Tournament</h3>
+            <div class="card-meta">
+              <span>📅 May 3</span>
+              <span>📍 Meskel Square</span>
+            </div>
+            <p class="card-desc">
+              Eight local teams compete in a single-day knockout tournament.
+              Come cheer, enjoy street food stalls, and join the mini-skills
+              challenge at halftime. Entry is 50 ETB.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('poetry')">
+          <div class="card-img">🎭</div>
+          <div class="card-body">
+            <h3>Amharic Poetry Night</h3>
+            <div class="card-meta">
+              <span>📅 May 8</span>
+              <span>📍 National Theatre</span>
+            </div>
+            <p class="card-desc">
+              Celebrate Ethiopian literature with an open-mic poetry evening in
+              Amharic and Tigrinya. New voices welcome — sign up to read at the
+              door. Light refreshments served.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('dance')">
+          <div class="card-img">🎉</div>
+          <div class="card-body">
+            <h3>Afrobeats Dance Night</h3>
+            <div class="card-meta">
+              <span>📅 May 10</span>
+              <span>📍 Sky Bar, Bole</span>
+            </div>
+            <p class="card-desc">
+              Addis' biggest monthly social night is back — DJ sets, dance
+              battles, and a bar serving cocktails all night. 21+ only. Tickets
+              sell out fast so grab yours early.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('business')">
+          <div class="card-img">💼</div>
+          <div class="card-body">
+            <h3>Startup Pitch Night</h3>
+            <div class="card-meta">
+              <span>📅 May 15</span>
+              <span>📍 Bole, Addis Ababa</span>
+            </div>
+            <p class="card-desc">
+              Ten early-stage startups pitch their ideas to a panel of investors
+              and mentors. Network with founders and the local business
+              community after the pitches. Free entry for audience members.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('health')">
+          <div class="card-img">❤️</div>
+          <div class="card-body">
+            <h3>Wellness & Yoga Morning</h3>
+            <div class="card-meta">
+              <span>📅 May 17</span>
+              <span>📍 Entoto Park</span>
+            </div>
+            <p class="card-desc">
+              Start your Saturday right with a guided outdoor yoga session
+              followed by a nutrition talk and healthy breakfast. Open to all
+              fitness levels. Bring your mat and a friend.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('gaming')">
+          <div class="card-img">🎮</div>
+          <div class="card-body">
+            <h3>Addis Gaming Tournament</h3>
+            <div class="card-meta">
+              <span>📅 May 20</span>
+              <span>📍 Unity Park</span>
+            </div>
+            <p class="card-desc">
+              Compete in FIFA, Mortal Kombat and Call of Duty tournaments with
+              prizes for top players. Casual gaming stations also available.
+              Food and drinks on site all day long.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('finearts')">
+          <div class="card-img">🎨</div>
+          <div class="card-body">
+            <h3>Ethiopian Fine Arts Exhibition</h3>
+            <div class="card-meta">
+              <span>📅 May 22</span>
+              <span>📍 Addis Ababa Museum</span>
+            </div>
+            <p class="card-desc">
+              A three-day exhibition showcasing paintings, sculptures and
+              photography from over 30 Ethiopian artists. Guided tours every two
+              hours. Entry is 80 ETB.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('theatre')">
+          <div class="card-img">🎭</div>
+          <div class="card-body">
+            <h3>National Theatre Play</h3>
+            <div class="card-meta">
+              <span>📅 May 25</span>
+              <span>📍 National Theatre, Addis</span>
+            </div>
+            <p class="card-desc">
+              A powerful new Amharic play exploring themes of identity, family
+              and modern Ethiopian life. Performed over three nights. Book your
+              seat early as it sells out fast.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+
+        <div class="event-card" onclick="openModal('gospel')">
+          <div class="card-img">🙏</div>
+          <div class="card-body">
+            <h3>Gospel Music Festival</h3>
+            <div class="card-meta">
+              <span>📅 May 27</span>
+              <span>📍 Meskel Square</span>
+            </div>
+            <p class="card-desc">
+              A full day of gospel music, worship and community celebration
+              featuring choirs and solo artists from across Ethiopia. Free entry
+              for all. Come with family and friends.
+            </p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <a href="about-us.html">About Us</a>
+      <p>© 2026 EventFinder. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/theme.js"></script>
+
+    <!-- ADD EVENT FORM -->
+    <div id="add-event-overlay" onclick="closeAddEventForm(event)" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 1000; align-items: center; justify-content: center; padding: 20px;">
+      <div onclick="event.stopPropagation()" style="background: var(--bg); border-radius: 20px; max-width: 550px; width: 100%; position: relative; padding: 30px; transition: all 0.3s ease;">
+        <button onclick="closeAddEventFormDirect()" style="position: absolute; top: 15px; right: 18px; background: rgba(0,0,0,0.4); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 18px; cursor: pointer;">✕</button>
+
+        <h2 style="margin-bottom: 20px; color: var(--text);">➕ Add New Event</h2>
+
+        <div class="form-group">
+          <label>Event Name *</label>
+          <input type="text" id="new-event-name" placeholder="e.g., Jazz Night in Addis" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background: var(--bg); color: var(--text);" />
+        </div>
+
+        <div class="form-group">
+          <label>Category *</label>
+          <select id="new-event-category" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background: var(--bg); color: var(--text);">
+            <option value="music">🎵 Music</option>
+            <option value="religion">⛪️ Religion</option>
+            <option value="business">💼 Business</option>
+            <option value="tech">💻 Technology</option>
+            <option value="health">❤️ Wellbeing</option>
+            <option value="sports">⚽️ Sports</option>
+            <option value="theatre">🎭 Theatre</option>
+            <option value="poetry">📝 Poetry</option>
+            <option value="finearts">🎨 Fine Arts</option>
+            <option value="gaming">🎮 Gaming</option>
+            <option value="social">🎉 Social</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Location *</label>
+          <input type="text" id="new-event-location" placeholder="e.g., Bole, Addis Ababa" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background: var(--bg); color: var(--text);" />
+        </div>
+
+        <div class="form-group">
+          <label>Date *</label>
+          <input type="date" id="new-event-date" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background: var(--bg); color: var(--text);" />
+        </div>
+
+        <div class="form-group">
+          <label>Ticket Price (ETB) *</label>
+          <input type="number" id="new-event-price" placeholder="0 for free events" value="0" min="0" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background: var(--bg); color: var(--text);" />
+        </div>
+
+        <div class="form-group">
+          <label>Description *</label>
+          <textarea id="new-event-desc" placeholder="Describe the event..." rows="4" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background: var(--bg); color: var(--text); resize: vertical;"></textarea>
+        </div>
+
+        <p id="add-event-error" style="color: #e74c3c; font-size: 13px; margin-bottom: 10px;"></p>
+
+        <button onclick="submitNewEvent()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #43cea2, #185a9d); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px;">➕ Add Event</button>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div
+      id="modal-overlay"
+      onclick="closeModal(event)"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          color: #000;
+          border-radius: 16px;
+          max-width: 500px;
+          width: 100%;
+          position: relative;
+          overflow: hidden;
+        "
+      >
+        <button
+          onclick="closeModalDirect()"
+          style="
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 16px;
+            cursor: pointer;
+          "
+        >
+          ✕
+        </button>
+        <img
+          id="modal-img"
+          src=""
+          style="width: 100%; height: 200px; object-fit: cover"
+        />
+        <div id="modal-content" style="padding: 22px">
+          <h2 id="modal-title" style="color: rgb(0, 0, 0); margin-bottom: 10px"></h2>
+          <p
+            id="modal-location"
+            style="color: rgb(0, 0, 0); font-size: 14px; margin-bottom: 14px"
+          ></p>
+          <p
+            id="modal-desc"
+            style="color: rgb(0, 0, 0); font-size: 15px; line-height: 1.7; margin-bottom: 18px"
+          ></p>
+          <button
+            style="
+              width: 100%;
+              padding: 12px;
+              background: linear-gradient(135deg, #43cea2, #185a9d);
+              color: #fff;
+              border: none;
+              border-radius: 8px;
+              font-size: 15px;
+              cursor: pointer;
+              font-weight: 600;
+            "
+            class="register-btn" onclick="redirectToRegistrationWithPrice(this)"          >
+            🎟 Register / Get Tickets
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

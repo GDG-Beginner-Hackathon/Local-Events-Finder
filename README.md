@@ -219,3 +219,4 @@ Multi-language	Low	Support Amharic and English
 
 2)   Christian Amare - member
 3)   Betelhem Solomon  - member
+4)   Fitsum Badeg-member

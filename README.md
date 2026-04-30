@@ -199,8 +199,7 @@ Single User Session	Multiple users on same device share localStorage
 
 ---
 
-## 🔮 Future Enhancements
-
+🔮 Future Enhancements
 Enhancement	Priority	Description
 Backend Integration	High	Use Node.js/Express + MongoDB for real data persistence
 API Integration	High	Fetch real events from Ticketmaster, Eventbrite APIs
@@ -216,7 +215,6 @@ Multi-language	Low	Support Amharic and English
 ## 👥 Team Members
          Name              Role
 1)   Ermiyas Getachew – Team leader
-
 2)   Christian Amare - member
 3)   Betelhem Solomon  - member
 4)   Fitsum Badeg-member

@@ -62,7 +62,6 @@ Local-Events-Finder/
 │
 ├── 📄 index.html # Homepage (event listing)
 ├── 📄 about-us.html # About Us page
-├── 📄 categories.html # Browse by category
 ├── 📄 login.html # User login
 ├── 📄 signup.html # User registration
 ├── 📄 register.html # Event registration & ticket booking
@@ -71,20 +70,21 @@ Local-Events-Finder/
 ├── 📁 styles/
 │ ├── base.css # Global styles + dark mode
 │ ├── home-auth.css # Homepage, login, signup styles
-│ ├── about.css # About page styles
+│ └── about.css # About page styles
+│ └── my-ticket.css  
+│ └── register.css
+│ └── responsiveness.css
 │
 ├── 📁 scripts/
 │ ├── theme.js # Dark mode toggle logic
-│ ├── main.js # Homepage functionality
-│ └── (other JS files)
+│ └── main.js # Homepage functionality
+│ └── my-ticket.js 
+│ └── register.js
 │
 ├── 📁 assets/
 │ └── images/ # Image assets
 │
 └── 📄 README.md # Project documentation
-
----
-
 
 ---
 
@@ -98,7 +98,6 @@ Local-Events-Finder/
 | **Login (login.html)** | User authentication | Email/password validation, localStorage persistence |
 | **Signup (signup.html)** | Create account | Name, email, password with validation |
 | **About Us (about-us.html)** | Platform info | Mission, vision, team, features |
-| **Categories (categories.html)** | Browse by category | Quick navigation to filtered events |
 
 ---
 
@@ -119,103 +118,111 @@ Local-Events-Finder/
 
 ## 🧩 Key Components
 
-Component	Description	Location
-Navbar	Navigation between pages + dark mode toggle	All pages
-Event Cards	Display event image, title, date, location, description	index.html
-Category Filters	Filter events by category (Music, Tech, etc.)	index.html, categories.html
-Search Box	Search events by title, location, or description	index.html
-Event Modal	Popup with full event details and register button	index.html
-Ticket Form	Multi-step registration with ticket selection	register.html
-My Tickets Grid	List of user's booked tickets with delete option	my-tickets.html
-Auth Forms	Login/Signup with validation	login.html, signup.html
+| Component | Description | Location |
+|-----------|-------------|----------|
+| **Navbar** | Navigation between pages + dark mode toggle | All pages |
+| **Event Cards** | Display event image, title, date, location, description | index.html |
+| **Category Filters** | Filter events by category (Music, Tech, etc.) | index.html, categories.html |
+| **Search Box** | Search events by title, location, or description | index.html |
+| **Event Modal** | Popup with full event details and register button | index.html |
+| **Ticket Form** | Multi-step registration with ticket selection | register.html |
+| **My Tickets Grid** | List of user's booked tickets with delete option | my-tickets.html |
+| **Auth Forms** | Login/Signup with validation | login.html, signup.html |
 
 ---
 
 ## 📌 Use Cases
 
-✅ Discover local events happening near you
-
-✅ Register for events with multiple ticket tiers
-
-✅ View and manage your booked tickets
-
-✅ Create and promote your own events
-
-✅ Browse events by category (Music, Tech, Business, etc.)
-
-✅ Toggle dark mode for night-time browsing
-
-✅ Practice front-end development concepts
+| Use Case | Description |
+|----------|-------------|
+| ✅ **Discover Events** | Find local events happening near you |
+| ✅ **Register for Events** | Book tickets with multiple pricing tiers |
+| ✅ **Manage Bookings** | View and delete your registered tickets |
+| ✅ **Create Events** | Organize and promote your own events |
+| ✅ **Filter by Category** | Browse events by Music, Tech, Business, etc. |
+| ✅ **Dark Mode** | Comfortable night-time browsing |
+| ✅ **Practice Development** | Learn front-end concepts |
 
 ---
 
 ## 🧪 Testing
 
-Browsers Tested
-Browser	Status
-Google Chrome	✅ Fully functional
-Mozilla Firefox	✅ Fully functional
-Microsoft Edge	✅ Fully functional
-Safari	✅ Fully functional
-Responsive Breakpoints Tested
-Device	Screen Width	Status
-Desktop	1200px+	✅ Perfect
-Laptop	1024px	✅ Perfect
-Tablet	768px	✅ 2-column layout
-Mobile	480px	✅ 1-column layout
-Small Phone	360px	✅ Optimized
+### Browsers Tested
 
----
+| Browser | Status |
+|---------|--------|
+| Google Chrome | ✅ Fully functional |
+| Mozilla Firefox | ✅ Fully functional |
+| Microsoft Edge | ✅ Fully functional |
+| Safari | ✅ Fully functional |
 
-## Features Tested
+### Responsive Breakpoints Tested
 
-✅ Dark mode toggle and persistence
+| Device | Screen Width | Status |
+|--------|--------------|--------|
+| Desktop | 1200px+ | ✅ Perfect |
+| Laptop | 1024px | ✅ Perfect |
+| Tablet | 768px | ✅ 2-column layout |
+| Mobile | 480px | ✅ 1-column layout |
+| Small Phone | 360px | ✅ Optimized |
 
-✅ Event filtering by category
+### Features Tested
 
-✅ Search functionality
-
-✅ Add/Edit/Delete user events
-
-✅ Ticket registration with pricing (Free/Regular/VIP)
-
-✅ Payment method selection
-
-✅ LocalStorage data persistence
-
-✅ Responsive layout across all devices
+| Feature | Status |
+|---------|--------|
+| Dark mode toggle and persistence | ✅ Working |
+| Event filtering by category | ✅ Working |
+| Search functionality | ✅ Working |
+| Add/Edit/Delete user events | ✅ Working |
+| Ticket registration with pricing (Free/Regular/VIP) | ✅ Working |
+| Payment method selection | ✅ Working |
+| LocalStorage data persistence | ✅ Working |
+| Responsive layout across all devices | ✅ Working |
 
 ---
 
 ## 🚧 Limitations
 
-Limitation	Description
-No Backend	All data stored in localStorage (clears when browser data is cleared)
-No Real Authentication	Simple localStorage-based auth (not secure for production)
-Static Events	Events are hardcoded + user-added (no API integration)
-No Payment Gateway	Payment methods are simulated (not real transactions)
-No Email Notifications	Confirmation messages only shown on screen
-Single User Session	Multiple users on same device share localStorage
+| Limitation | Description |
+|------------|-------------|
+| **No Backend** | All data stored in localStorage (clears when browser data is cleared) |
+| **No Real Authentication** | Simple localStorage-based auth (not secure for production) |
+| **Static Events** | Events are hardcoded + user-added (no API integration) |
+| **No Payment Gateway** | Payment methods are simulated (not real transactions) |
+| **No Email Notifications** | Confirmation messages only shown on screen |
+| **Single User Session** | Multiple users on same device share localStorage |
 
 ---
 
-🔮 Future Enhancements
-Enhancement	Priority	Description
-Backend Integration	High	Use Node.js/Express + MongoDB for real data persistence
-API Integration	High	Fetch real events from Ticketmaster, Eventbrite APIs
-Google Maps Integration	Medium	Show event locations on an interactive map
-Email Confirmation	Medium	Send real email confirmations for registrations
-User Profiles	Medium	Allow users to save preferences and view history
-Social Sharing	Low	Share events on Facebook, Twitter, WhatsApp
-Mobile App	Low	Convert to React Native or Flutter app
-Multi-language	Low	Support Amharic and English
+## 🔮 Future Enhancements
+
+| Enhancement | Priority | Description |
+|-------------|----------|-------------|
+| **Backend Integration** | High | Use Node.js/Express + MongoDB for real data persistence |
+| **API Integration** | High | Fetch real events from Ticketmaster, Eventbrite APIs |
+| **Google Maps Integration** | Medium | Show event locations on an interactive map |
+| **Email Confirmation** | Medium | Send real email confirmations for registrations |
+| **User Profiles** | Medium | Allow users to save preferences and view history |
+| **Social Sharing** | Low | Share events on Facebook, Twitter, WhatsApp |
+| **Mobile App** | Low | Convert to React Native or Flutter app |
+| **Multi-language** | Low | Support Amharic and English |
 
 ---
 
 ## 👥 Team Members
-         Name              Role
-1)   Ermiyas Getachew – Team leader
-2)   Christian Amare - member
-3)   Betelhem Solomon  - member
-4)   Fitsum Badeg-member
-5)   Trufat Admasu - member
+
+| Name | Role |
+|------|------|
+| **Ermiyas Getachew** | Team Leader |
+| **Christian Amare** | Member |
+| **Betelhem Solomon** | Member |
+| **Fitsum Badeg** | Member |
+| **Trufat Admasu** | Member |
+
+---
+
+## 📄 License
+
+This project was created for the **GDG Beginner Hackathon**. All rights reserved.
+
+---

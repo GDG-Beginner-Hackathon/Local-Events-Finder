@@ -659,6 +659,7 @@ function checkLoginBeforeAdd() {
 function showLoginRequiredMessage() {
   // Create custom modal
   const overlay = document.createElement('div');
+  overlay.id = 'login-required-overlay';
   overlay.style.cssText = `
     position: fixed;
     top: 0;
@@ -687,8 +688,8 @@ function showLoginRequiredMessage() {
     <h3 style="margin-bottom: 10px; color: var(--text);">Login Required</h3>
     <p style="margin-bottom: 20px; color: gray;">You need to be logged in to add an event.</p>
     <div style="display: flex; gap: 10px; justify-content: center;">
-      <button onclick="redirectToLogin()" style="padding: 10px 20px; background: linear-gradient(135deg, #43cea2, #185a9d); color: white; border: none; border-radius: 8px; cursor: pointer;">Login Now</button>
-      <button onclick="closeLoginModal(this)" style="padding: 10px 20px; background: gray; color: white; border: none; border-radius: 8px; cursor: pointer;">Cancel</button>
+      <button id="login-now-btn" style="padding: 10px 20px; background: linear-gradient(135deg, #43cea2, #185a9d); color: white; border: none; border-radius: 8px; cursor: pointer;">Login Now</button>
+      <button id="cancel-login-btn" style="padding: 10px 20px; background: gray; color: white; border: none; border-radius: 8px; cursor: pointer;">Cancel</button>
     </div>
   `;
   
@@ -696,8 +697,18 @@ function showLoginRequiredMessage() {
   document.body.appendChild(overlay);
   document.body.style.overflow = 'hidden';
   
-  // Store overlay reference to close it
-  window.loginOverlay = overlay;
+  // Add event listeners
+  document.getElementById('login-now-btn').addEventListener('click', redirectToLogin);
+  document.getElementById('cancel-login-btn').addEventListener('click', closeLoginModalPopup);
+}
+
+// Close login modal popup
+function closeLoginModalPopup() {
+  const overlay = document.getElementById('login-required-overlay');
+  if (overlay) {
+    overlay.remove();
+    document.body.style.overflow = '';
+  }
 }
 
 // Redirect to login page

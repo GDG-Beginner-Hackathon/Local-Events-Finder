@@ -213,6 +213,8 @@ Multi-language	Low	Support Amharic and English
 
 ---
 
-##👥 Team Members
-   Name	  Role
-1) Ermiyas Getachew Team leader
+## 👥 Team Members
+         Name              Role
+1)   Ermiyas Getachew – Team leader
+
+2)   Christian Amare - member

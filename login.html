@@ -54,50 +54,65 @@
 
   <script src="scripts/theme.js"></script>
   <script>
-      function handleLogin() {
-        const email = document.getElementById('login-email').value.trim();
-        const password = document.getElementById('login-password').value.trim();
-        const error = document.getElementById('login-error');
-        const success = document.getElementById('login-success');
+        function handleLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value.trim();
+  const error = document.getElementById('login-error');
+  const success = document.getElementById('login-success');
 
-        error.textContent = '';
-        success.textContent = '';
+  error.textContent = '';
+  success.textContent = '';
 
-        if (!email || !password) {
-          error.textContent = '⚠️ Please fill in all fields.';
-          return;
-        }
+  // Check for empty fields
+  if (!email || !password) {
+    error.textContent = '⚠️ Please fill in all fields.';
+    return;
+  }
 
-        const saved = localStorage.getItem('eventfinder_user');
+  // Email format validation
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    error.textContent = '⚠️ Please enter a valid email address (e.g., name@example.com).';
+    return;
+  }
 
-        if (!saved) {
-          error.textContent = '⚠️ No account found. Please sign up first.';
-          return;
-        }
+  // Check if user exists
+  const saved = localStorage.getItem('eventfinder_user');
 
-        const user = JSON.parse(saved);
+  if (!saved) {
+    error.textContent = '⚠️ No account found. Please sign up first.';
+    return;
+  }
 
-        if (user.email !== email || user.password !== password) {
-          error.textContent = '⚠️ Incorrect email or password.';
-          return;
-        }
+  const user = JSON.parse(saved);
 
-        success.textContent = '✅ Login successful! Redirecting...';
-        localStorage.setItem('eventfinder_loggedin', 'true');
-        localStorage.setItem('eventfinder_username', user.name);
+  // Check credentials
+  if (user.email !== email) {
+    error.textContent = '⚠️ Email not found. Please sign up first.';
+    return;
+  }
 
-        // NEW CODE - Check if user was trying to add an event
-        const redirectAfterLogin = localStorage.getItem('redirectAfterLogin');
-        
-        setTimeout(() => {
-          if (redirectAfterLogin === 'true') {
-            localStorage.removeItem('redirectAfterLogin');
-            window.location.href = 'index.html?action=addEvent';
-          } else {
-            window.location.href = 'index.html';
-          }
-        }, 1500);
-      }
+  if (user.password !== password) {
+    error.textContent = '⚠️ Incorrect password. Please try again.';
+    return;
+  }
+
+  success.textContent = '✅ Login successful! Redirecting...';
+  localStorage.setItem('eventfinder_loggedin', 'true');
+  localStorage.setItem('eventfinder_username', user.name);
+
+  // Check if user was trying to add an event
+  const redirectAfterLogin = localStorage.getItem('redirectAfterLogin');
+  
+  setTimeout(() => {
+    if (redirectAfterLogin === 'true') {
+      localStorage.removeItem('redirectAfterLogin');
+      window.location.href = 'index.html?action=addEvent';
+    } else {
+      window.location.href = 'index.html';
+    }
+  }, 1500);
+}
   </script>
 
 </body>

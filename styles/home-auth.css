@@ -17,13 +17,29 @@ body > section:first-of-type {
 
 /* Hero Section - Full width like registration header */
 .hero {
-  width: 100%;
-  margin: 0 auto 20px auto;
-  padding: 60px 40px !important;
+  text-align: center;
+  padding: 80px 40px;
+  border-radius: 20px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/images/hero.jpg");
+  background-color: #185a9d;
+  color: white;
   background-size: cover;
   background-position: center;
-  border-radius: 16px;
-  box-sizing: border-box;
+  margin-bottom: 30px;
+  
+  /* ADD THESE 3 LINES */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  max-width: 550px;
+  width: 100%;
 }
 
 .hero h2 {
@@ -34,15 +50,6 @@ body > section:first-of-type {
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 25px;
-}
-
-/* Search Box - Center and scale properly */
-.search-box {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .search-box input {

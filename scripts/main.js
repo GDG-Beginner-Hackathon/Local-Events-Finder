@@ -78,6 +78,7 @@ function filterByCategory(category) {
         religion: "⛪️",
         business: "💼",
         tech: "💻",
+        poetry: "📝",
         health: "❤️",
         sports: "⚽️",
         theatre: "🎭",
@@ -87,22 +88,37 @@ function filterByCategory(category) {
       };
 
       function openAddEventForm() {
-        document
-          .getElementById("add-event-overlay")
-          .removeAttribute("data-editing");
-        document.querySelector("#add-event-overlay h2").textContent =
-          "➕ Add New Event";
-        document.querySelector(
-          "#add-event-overlay button:last-of-type",
-        ).textContent = "Add Event";
+        // Clear any editing flag
+        document.getElementById("add-event-overlay").removeAttribute("data-editing");
+        document.querySelector("#add-event-overlay h2").textContent = "➕ Add New Event";
+        const submitBtn = document.querySelector("#add-event-overlay button:last-of-type");
+        if (submitBtn) submitBtn.textContent = "➕ Add Event";
+        
+        // Clear form fields
+        document.getElementById("new-event-name").value = "";
+        document.getElementById("new-event-category").value = "music";
+        document.getElementById("new-event-location").value = "";
+        document.getElementById("new-event-date").value = "";
+        document.getElementById("new-event-price").value = "0";
+        document.getElementById("new-event-desc").value = "";
+        document.getElementById("add-event-error").textContent = "";
+        
+        // Show overlay
         document.getElementById("add-event-overlay").style.display = "flex";
         document.body.style.overflow = "hidden";
+      }
+
+      function closeAddEventForm(event) {
+        if (event.target === document.getElementById("add-event-overlay")) {
+          closeAddEventFormDirect();
+        }
       }
 
       function closeAddEventFormDirect() {
         document.getElementById("add-event-overlay").style.display = "none";
         document.body.style.overflow = "";
       }
+
 
       function closeAddEventForm(e) {
         if (e.target === document.getElementById("add-event-overlay"))
@@ -197,115 +213,259 @@ function filterByCategory(category) {
         });
       }
 
+
       function submitNewEvent() {
-        const name = document.getElementById("new-event-name").value.trim();
-        const category = document.getElementById("new-event-category").value;
-        const location = document
-          .getElementById("new-event-location")
-          .value.trim();
-        const date = document.getElementById("new-event-date").value;
-        const desc = document.getElementById("new-event-desc").value.trim();
-        const error = document.getElementById("add-event-error");
-        const editingId = document
-          .getElementById("add-event-overlay")
-          .getAttribute("data-editing");
-
-        error.textContent = "";
-
-        if (!name || !location || !date || !desc) {
-          error.textContent = "⚠️ Please fill in all fields.";
-          return;
+      const name = document.getElementById("new-event-name").value.trim();
+      const category = document.getElementById("new-event-category").value;
+      const location = document.getElementById("new-event-location").value.trim();
+      const date = document.getElementById("new-event-date").value;
+      const price = parseInt(document.getElementById("new-event-price").value) || 0;
+      const desc = document.getElementById("new-event-desc").value.trim();
+      const errorDiv = document.getElementById("add-event-error");
+      
+      // Validation
+      errorDiv.textContent = "";
+      
+      if (!name || !location || !date || !desc) {
+        errorDiv.textContent = "⚠️ Please fill in all required fields.";
+        return;
+      }
+      
+      // Check if we're editing an existing event
+      const editingId = document.getElementById("add-event-overlay").getAttribute("data-editing");
+      
+      // Format date
+      const dateObj = new Date(date);
+      const formattedDate = dateObj.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      
+      // Get emoji for category
+      const categoryEmojis = {
+        music: "🎵", religion: "⛪️", business: "💼", tech: "💻",
+        health: "❤️", sports: "⚽️", theatre: "🎭", finearts: "🎨",
+        gaming: "🎮", social: "🎉"
+      };
+      const emoji = categoryEmojis[category] || "🎉";
+      
+      if (editingId) {
+        // UPDATE existing event
+        eventData[editingId] = {
+          ...eventData[editingId],
+          title: name,
+          category: category,
+          rawLocation: location,
+          rawDate: date,
+          desc: desc,
+          regularPrice: price,
+          location: `📍 ${location}  •  📅 ${formattedDate}`,
+          img: "https://via.placeholder.com/500x200"
+        };
+        
+        // Update the card in DOM
+        const existingCard = document.querySelector(`[data-id="${editingId}"]`);
+        if (existingCard) {
+          existingCard.setAttribute("data-category", category);
+          existingCard.querySelector("h3").textContent = name;
+          existingCard.querySelector(".card-img").textContent = emoji;
+          existingCard.querySelector(".card-desc").textContent = desc;
+          existingCard.querySelectorAll(".card-meta span")[0].textContent = `📅 ${formattedDate}`;
+          existingCard.querySelectorAll(".card-meta span")[1].textContent = `📍 ${location}`;
         }
+        
+        // Reset editing mode
+        document.getElementById("add-event-overlay").removeAttribute("data-editing");
+      } else {
+        // CREATE new event
+        const id = "user_" + Date.now();
+        
+        eventData[id] = {
+          title: name,
+          category: category,
+          rawLocation: location,
+          rawDate: date,
+          desc: desc,
+          regularPrice: price,
+          location: `📍 ${location}  •  📅 ${formattedDate}`,
+          img: "https://via.placeholder.com/500x200"
+        };
+        
+        // Create new card
+        const grid = document.querySelector(".event-grid");
+        const card = document.createElement("div");
+        card.className = "event-card";
+        card.setAttribute("data-category", category);
+        card.setAttribute("data-id", id);
+        card.innerHTML = `
+          <div class="card-img">${emoji}</div>
+          <div class="card-body">
+            <h3>${escapeHtml(name)}</h3>
+            <div class="card-meta">
+              <span>📅 ${formattedDate}</span>
+              <span>📍 ${escapeHtml(location)}</span>
+            </div>
+            <p class="card-desc">${escapeHtml(desc)}</p>
+            <span class="read-more">Read more →</span>
+            <div class="user-card-actions">
+              <button class="edit-btn" onclick="editEvent('${id}', event)">✏️ Edit</button>
+              <button class="delete-btn" onclick="deleteEvent('${id}', event)">🗑️ Delete</button>
+            </div>
+          </div>
+        `;
+        card.addEventListener("click", () => openModal(id));
+        grid.appendChild(card);
+      }
+          
 
-        const emoji = categoryEmojis[category] || "🎉";
-        const dateObj = new Date(date);
-        const formattedDate = dateObj.toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        });
+            saveToLocalStorage();
+            closeAddEventFormDirect();
+            showToast(editingId ? "✅ Event updated successfully!" : "✅ Event added successfully!");
 
-        if (editingId) {
-          // UPDATE existing card
-          eventData[editingId] = {
-            title: name,
-            location: "📍 " + location + "  •  📅 " + formattedDate,
-            img: "https://via.placeholder.com/500x200",
-            desc: desc,
-            category: category,
-            rawDate: date,
-            rawLocation: location,
-          };
-
-          const existingCard = document.querySelector(
-            `[data-id="${editingId}"]`,
-          );
-          if (existingCard) {
-            existingCard.setAttribute("data-category", category);
-            existingCard.querySelector("h3").textContent = name;
-            existingCard.querySelector(".card-img").textContent = emoji;
-            existingCard.querySelector(".card-desc").textContent = desc;
-            existingCard.querySelectorAll(".card-meta span")[0].textContent =
-              "📅 " + formattedDate;
-            existingCard.querySelectorAll(".card-meta span")[1].textContent =
-              "📍 " + location;
+            document.getElementById("new-event-name").value = "";
+            document.getElementById("new-event-location").value = "";
+            document.getElementById("new-event-date").value = "";
+            document.getElementById("new-event-desc").value = "";
           }
 
-          document
-            .getElementById("add-event-overlay")
-            .removeAttribute("data-editing");
-          document.querySelector("#add-event-overlay h2").textContent =
-            "➕ Add New Event";
-          document.querySelector(
-            "#add-event-overlay button:last-of-type",
-          ).textContent = "Add Event";
-        } else {
-          // CREATE new card
-          const id = "user_" + Date.now();
+          // Helper function to escape HTML
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
 
-          eventData[id] = {
-            title: name,
-            location: "📍 " + location + "  •  📅 " + formattedDate,
-            img: "https://via.placeholder.com/500x200",
-            desc: desc,
-            category: category,
-            rawDate: date,
-            rawLocation: location,
-            regularPrice: price 
-          };
+    // Show toast notification
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.textContent = message;
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #43cea2;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        z-index: 2000;
+        font-size: 14px;
+        font-weight: bold;
+        animation: fadeInOut 2s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2000);
+    }
 
-          const grid = document.querySelector(".event-grid");
-          const card = document.createElement("div");
-          card.className = "event-card";
-          card.setAttribute("data-category", category);
-          card.setAttribute("data-id", id);
-          card.innerHTML = `
-      <div class="card-img">${emoji}</div>
-      <div class="card-body">
-        <h3>${name}</h3>
-        <div class="card-meta">
-          <span>📅 ${formattedDate}</span>
-          <span>📍 ${location}</span>
-        </div>
-        <p class="card-desc">${desc}</p>
-        <span class="read-more">Read more →</span>
-        <div class="user-card-actions">
-          <button class="edit-btn" onclick="editEvent('${id}', event)">✏️ Edit</button>
-          <button class="delete-btn" onclick="deleteEvent('${id}', event)">🗑️ Delete</button>
-        </div>
-      </div>
-    `;
-          card.addEventListener("click", () => openModal(id));
-          grid.appendChild(card);
+    // Add animation style if not exists
+    if (!document.querySelector('#toast-animation')) {
+      const style = document.createElement('style');
+      style.id = 'toast-animation';
+      style.textContent = `
+        @keyframes fadeInOut {
+          0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+          15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+          85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+          100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
         }
+      `;
+      document.head.appendChild(style);
+    }
 
-        saveToLocalStorage();
-        closeAddEventFormDirect();
+    // Save to localStorage
+    function saveToLocalStorage() {
+      const userEvents = {};
+      Object.keys(eventData).forEach((key) => {
+        if (key.startsWith("user_")) {
+          userEvents[key] = eventData[key];
+        }
+      });
+      localStorage.setItem("userEvents", JSON.stringify(userEvents));
+    }
 
-        document.getElementById("new-event-name").value = "";
-        document.getElementById("new-event-location").value = "";
-        document.getElementById("new-event-date").value = "";
-        document.getElementById("new-event-desc").value = "";
-      }
+    // Load from localStorage
+    function loadFromLocalStorage() {
+      const saved = localStorage.getItem("userEvents");
+      if (!saved) return;
+
+      const userEvents = JSON.parse(saved);
+      const grid = document.querySelector(".event-grid");
+
+      Object.keys(userEvents).forEach((id) => {
+        const ev = userEvents[id];
+        if (document.querySelector(`[data-id="${id}"]`)) return; // Skip if already exists
+        
+        eventData[id] = ev;
+
+        const categoryEmojis = {
+          music: "🎵", religion: "⛪️", business: "💼", tech: "💻",
+          health: "❤️", sports: "⚽️", theatre: "🎭", finearts: "🎨",
+          gaming: "🎮", social: "🎉"
+        };
+        const emoji = categoryEmojis[ev.category] || "🎉";
+        const dateObj = new Date(ev.rawDate);
+        const formattedDate = dateObj.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
+        const card = document.createElement("div");
+        card.className = "event-card";
+        card.setAttribute("data-category", ev.category);
+        card.setAttribute("data-id", id);
+        card.innerHTML = `
+          <div class="card-img">${emoji}</div>
+          <div class="card-body">
+            <h3>${escapeHtml(ev.title)}</h3>
+            <div class="card-meta">
+              <span>📅 ${formattedDate}</span>
+              <span>📍 ${escapeHtml(ev.rawLocation)}</span>
+            </div>
+            <p class="card-desc">${escapeHtml(ev.desc)}</p>
+            <span class="read-more">Read more →</span>
+            <div class="user-card-actions">
+              <button class="edit-btn" onclick="editEvent('${id}', event)">✏️ Edit</button>
+              <button class="delete-btn" onclick="deleteEvent('${id}', event)">🗑️ Delete</button>
+            </div>
+          </div>
+        `;
+        card.addEventListener("click", () => openModal(id));
+        grid.appendChild(card);
+      });
+    }
+
+    // Edit event
+    function editEvent(id, e) {
+      e.stopPropagation();
+      const ev = eventData[id];
+      if (!ev) return;
+
+      document.getElementById("new-event-name").value = ev.title;
+      document.getElementById("new-event-category").value = ev.category;
+      document.getElementById("new-event-location").value = ev.rawLocation;
+      document.getElementById("new-event-date").value = ev.rawDate;
+      document.getElementById("new-event-price").value = ev.regularPrice || 0;
+      document.getElementById("new-event-desc").value = ev.desc;
+
+      document.getElementById("add-event-overlay").setAttribute("data-editing", id);
+      document.querySelector("#add-event-overlay h2").textContent = "✏️ Edit Event";
+      const submitBtn = document.querySelector("#add-event-overlay button:last-of-type");
+      if (submitBtn) submitBtn.textContent = "💾 Save Changes";
+
+      document.getElementById("add-event-overlay").style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    // Delete event
+    function deleteEvent(id, e) {
+      e.stopPropagation();
+      if (!confirm("Are you sure you want to delete this event?")) return;
+
+      delete eventData[id];
+      const card = document.querySelector(`[data-id="${id}"]`);
+      if (card) card.remove();
+      saveToLocalStorage();
+      showToast("🗑️ Event deleted successfully!");
+    }
 
       const eventData = {
         tech: {

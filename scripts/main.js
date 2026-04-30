@@ -641,3 +641,101 @@ function filterByCategory(category) {
           
           window.location.href = `register.html?eventId=${encodeURIComponent(eventId)}&title=${encodeURIComponent(eventTitle)}&location=${encodeURIComponent(cleanLocation)}&date=${encodeURIComponent(eventDate)}&regularPrice=${regularPrice}`;
         }
+
+        // Check if user is logged in before adding event
+function checkLoginBeforeAdd() {
+  const isLoggedIn = localStorage.getItem('eventfinder_loggedin');
+  
+  if (isLoggedIn === 'true') {
+    // User is logged in - open add event form
+    openAddEventForm();
+  } else {
+    // User is not logged in - show message and redirect
+    showLoginRequiredMessage();
+  }
+}
+
+// Show login required message and redirect
+function showLoginRequiredMessage() {
+  // Create custom modal
+  const overlay = document.createElement('div');
+  overlay.id = 'login-required-overlay';
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+  
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  `;
+  
+  modal.innerHTML = `
+    <div style="font-size: 48px; margin-bottom: 15px;">🔒</div>
+    <h3 style="margin-bottom: 10px; color: var(--text);">Login Required</h3>
+    <p style="margin-bottom: 20px; color: gray;">You need to be logged in to add an event.</p>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      <button id="login-now-btn" style="padding: 10px 20px; background: linear-gradient(135deg, #43cea2, #185a9d); color: white; border: none; border-radius: 8px; cursor: pointer;">Login Now</button>
+      <button id="cancel-login-btn" style="padding: 10px 20px; background: gray; color: white; border: none; border-radius: 8px; cursor: pointer;">Cancel</button>
+    </div>
+  `;
+  
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  
+  // Add event listeners
+  document.getElementById('login-now-btn').addEventListener('click', redirectToLogin);
+  document.getElementById('cancel-login-btn').addEventListener('click', closeLoginModalPopup);
+}
+
+// Close login modal popup
+function closeLoginModalPopup() {
+  const overlay = document.getElementById('login-required-overlay');
+  if (overlay) {
+    overlay.remove();
+    document.body.style.overflow = '';
+  }
+}
+
+// Redirect to login page
+function redirectToLogin() {
+  localStorage.setItem('redirectAfterLogin', 'true');
+  window.location.href = 'login.html';
+}
+
+// Close login modal
+function closeLoginModal(btn) {
+  const overlay = btn.closest('div').parentElement;
+  overlay.remove();
+  document.body.style.overflow = '';
+}
+
+// Check if redirected from login to add event
+function checkRedirectAction() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const action = urlParams.get('action');
+  
+  if (action === 'addEvent') {
+    // Small delay to ensure page is fully loaded
+    setTimeout(() => {
+      openAddEventForm();
+    }, 500);
+  }
+}
+
+// Call this function when page loads
+checkRedirectAction();

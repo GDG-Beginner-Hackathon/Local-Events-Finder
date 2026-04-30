@@ -39,6 +39,7 @@
 | 🎫 **Ticket Registration** | Register for events with multiple ticket types (Free, Regular, VIP) |
 | 💳 **Payment Options** | TeleBirr, CBE Birr, or Pay at Venue |
 | ✏️ **User-Generated Events** | Add, edit, and delete your own events |
+| 🔒 **Login Required for Actions** | Users must be logged in to add, edit or delete events |
 | 📋 **My Tickets** | View and manage all your registered events |
 | 👤 **Authentication** | Sign up and login functionality (localStorage-based) |
 | ⚡ **Lightweight** | Pure HTML, CSS, JavaScript (no external dependencies) |
@@ -113,7 +114,8 @@ Local-Events-Finder/
 8. **Manage Tickets** – Delete unwanted tickets from My Tickets page
 9. **Dark Mode** – Toggle theme using the button in navbar (persists across pages)
 10. **Create Events** – Logged-in users can add their own events to the grid
-
+11. **Login Required** – To add or edit events, users must be logged in. Non-logged-in users are redirected to login page
+    
 ---
 
 ## 🧩 Key Components
@@ -128,6 +130,7 @@ Local-Events-Finder/
 | **Ticket Form** | Multi-step registration with ticket selection | register.html |
 | **My Tickets Grid** | List of user's booked tickets with delete option | my-tickets.html |
 | **Auth Forms** | Login/Signup with validation | login.html, signup.html |
+| **Login Guard** | Prevents unauthorized event creation, redirects to login | index.html |
 
 ---
 
@@ -142,6 +145,7 @@ Local-Events-Finder/
 | ✅ **Filter by Category** | Browse events by Music, Tech, Business, etc. |
 | ✅ **Dark Mode** | Comfortable night-time browsing |
 | ✅ **Practice Development** | Learn front-end concepts |
+| ✅ **Secure Event Creation** | Only authenticated users can create and manage events |
 
 ---
 
@@ -177,6 +181,7 @@ Local-Events-Finder/
 | Payment method selection | ✅ Working |
 | LocalStorage data persistence | ✅ Working |
 | Responsive layout across all devices | ✅ Working |
+| Login required for adding events | ✅ Working |
 
 ---
 
@@ -190,6 +195,7 @@ Local-Events-Finder/
 | **No Payment Gateway** | Payment methods are simulated (not real transactions) |
 | **No Email Notifications** | Confirmation messages only shown on screen |
 | **Single User Session** | Multiple users on same device share localStorage |
+| **No Role-Based Access** | All logged-in users have same permissions (no admin/user distinction) |
 
 ---
 

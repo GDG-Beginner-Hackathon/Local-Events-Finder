@@ -434,3 +434,32 @@ footer a {
     font-size: 0.9rem;
   }
 }
+
+/* Form validation styles */
+.form-group input:invalid {
+  border-color: #e74c3c;
+}
+
+.form-group input:valid {
+  border-color: #27ae60;
+}
+
+.auth-error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.auth-success {
+  color: #27ae60;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* Disabled button style */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
